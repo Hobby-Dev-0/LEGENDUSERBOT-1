@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 from telethon import events
 
-from .session import H2, H3, H4, H5
+from .session import L2, L3, L4, L5
 from userbot import CMD_LIST, LOAD_PLUG, bot
 from userbot.Config import Config
 
