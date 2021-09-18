@@ -19,12 +19,12 @@ async def _(event):
         )
     )
 
-
+hndlr = dB.get("HANDLER")
 @legend_cmd(
     pattern="getredis ?(.*)",
 )
 async def _(event):
-    ok = await bot.send_message(event, "`Fetching data from Redis`")
+    ok = await event.edit(event, "`Fetching data from Redis`")
     val = event.pattern_match.group(1)
     if val == "":
         return await event.edit(f"Please use `{hndlr}getkeys <keyname>`")
@@ -40,7 +40,7 @@ async def _(event):
     ok = await eor(event, "`Deleting data from Redis ...`")
     key = event.pattern_match.group(1)
     dB.delete(key)
-    await ok.edit(f"`Successfully deleted key {key}`")
+    await event.edit(f"`Successfully deleted key {key}`")
 
 
 @legend_cmd(
