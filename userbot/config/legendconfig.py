@@ -157,14 +157,8 @@ class Config(object):
         #heroku 
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
-        # send .get_id in any channel to forward all your NEW PMs to this group
-    #private channel to forward all your Private messages
 
-     
-     OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", None)
-     OPEN_LOAD_KEY = os.environ.get("OPEN_LOAD_KEY", None)
-        # number of colums of buttons to be displayed in .legend command
-     NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 2))
+    NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 2))
         # emoji to be displayed  in help .legend
      EMOJI_IN_HELP1 = os.environ.get("EMOJI_IN_HELP1", "⚜️ ")
      EMOJI_IN_HELP2 = os.environ.get("EMOJI_IN_HELP2", "🌹 ")
