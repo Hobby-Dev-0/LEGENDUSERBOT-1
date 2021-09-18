@@ -78,15 +78,7 @@ class Config(object):
     UB_BLACK_LIST_CHAT = set(
         int(x) for x in os.environ.get("UB_BLACK_LIST_CHAT", "").split()
     )
-    PRIVATE_GROUP_ID = os.environ.get("PRIVATE_GROUP_ID", None)
-    if PRIVATE_GROUP_ID is not None:
-        try:
-            PRIVATE_GROUP_ID = int(PRIVATE_GROUP_ID)
-        except ValueError:
-            raise ValueError(
-                "Invalid Private Group ID. Make sure your ID is starts with -100 and make sure that it is only numbers."
-            )
-
+   
     PM_LOGGR_BOT_API_ID = os.environ.get("PM_LOGGR_BOT_API_ID", None)
     if PM_LOGGR_BOT_API_ID:
         PM_LOGGR_BOT_API_ID = int(PM_LOGGR_BOT_API_ID)
@@ -166,10 +158,7 @@ class Config(object):
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
         # send .get_id in any channel to forward all your NEW PMs to this group
-    PRIVATE_GROUP_BOT_API_ID = os.environ.get("PRIVATE_GROUP_BOT_API_ID", None)
-     if PRIVATE_GROUP_BOT_API_ID:
-         PRIVATE_GROUP_BOT_API_ID = int(PRIVATE_GROUP_BOT_API_ID)
-        # send .get_id in your private channel to forward all your Private messages
+    #private channel to forward all your Private messages
 
      TAG_LOGGER = os.environ.get("TAG_LOGGER", None)
      if TAG_LOGGER: TAG_LOGGER = int(TAG_LOGGER)
@@ -183,8 +172,7 @@ class Config(object):
         # DataBase would not work
      DB_URI = os.environ.get("DATABASE_URL", None)
     # number of rows of buttons to be displayed in .legend command
-     BUTTONS_IN_HELP = int(os.environ.get("NO_OF_BUTTONS", 7))
-        #open load
+     
      OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", None)
      OPEN_LOAD_KEY = os.environ.get("OPEN_LOAD_KEY", None)
         # number of colums of buttons to be displayed in .legend command
