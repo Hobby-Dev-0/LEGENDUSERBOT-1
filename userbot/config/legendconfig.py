@@ -160,18 +160,6 @@ class Config(object):
         # send .get_id in any channel to forward all your NEW PMs to this group
     #private channel to forward all your Private messages
 
-     TAG_LOGGER = os.environ.get("TAG_LOGGER", None)
-     if TAG_LOGGER: TAG_LOGGER = int(TAG_LOGGER)
-
-        #Tag LOGGER
-
-     PM_LOGGR_BOT_API_ID = os.environ.get("PM_LOGGR_BOT_API_ID", None)
-     if PM_LOGGR_BOT_API_ID: PM_LOGGR_BOT_API_ID = int(PM_LOGGR_BOT_API_ID)
-        # For Databases
-        # can be None in which case plugins requiring
-        # DataBase would not work
-     DB_URI = os.environ.get("DATABASE_URL", None)
-    # number of rows of buttons to be displayed in .legend command
      
      OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", None)
      OPEN_LOAD_KEY = os.environ.get("OPEN_LOAD_KEY", None)
@@ -206,9 +194,7 @@ class Config(object):
         #Lydia API
      LYDIA_API = os.environ.get("LYDIA_API",None)
      PLUGIN_CHANNEL = os.environ.get("PLUGIN_CHANNEL",None)
-     UPSTREAM_REPO = os.environ.get(
-         "UPSTREAM_REPO", "https://github.com/LEGEND-OS/LEGENDBOT"
-     )
+     
      BOT_MODE = os.environ.get("BOT_MODE", "ON")
      ABUSE = os.environ.get("ABUSE", None)
      BOTLOG_CHATID = os.environ.get("PM_LOGGR_BOT_API_ID", None)
@@ -220,9 +206,7 @@ class Config(object):
      BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
      FORCE_SUB = os.environ.get("FORCE_SUB", None)
      FORCE_CHANNEL_UN = os.environ.get("FORCE_CHANNEL_UN", None)
-     LOGGER_ID = os.environ.get("LOGGER_ID", None)
-     if LOGGER_ID:
-         LOGGER_ID = int(LOGGER_ID)
+     
      FORCE_CHANNEL_ID = int(os.environ.get("FORCE_CHANNEL_ID", False))
      EXTRA_LEGENDBOT = os.environ.get("EXTRA_LEGENDBOT", -1001221881562)
      PM_DATA = os.environ.get("PM_DATA", "ENABLE")
