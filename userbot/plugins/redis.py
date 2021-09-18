@@ -71,3 +71,15 @@ async def _(event):
     for x in keys:
         msg += "• `{}`".format(x) + "\n"
     await event.edit("**List of Redis Keys :**\n{}".format(msg))
+
+CmdHelp("Redis").add_command(
+  "setredis", None, "Save The Values On Redis"
+).add_command(
+  "getkeys", None, "Sends the keys of your redis"
+).add_command(
+  "renredis", None, "Renames the redis key"
+).add_command(
+  "delredis", None, "Deletes the redis key"
+).add_warning(
+  "✅ Safe Module."
+).add()
