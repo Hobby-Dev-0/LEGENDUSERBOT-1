@@ -7,10 +7,7 @@ import time
 
 from .. import *
 from ..startup import *
-from ..config import Config
-from ..helpers import *
-from ..utils import *
-from ..helpers import *
+
 from telethon import version
 import datetime
 from telethon import version
