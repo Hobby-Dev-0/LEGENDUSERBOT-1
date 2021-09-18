@@ -143,11 +143,11 @@ def load_module(shortname):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = Legend
-        mod.H1 = Legend
-        mod.H2 = L2
-        mod.H3 = L3
-        mod.H4 = L4
-        mod.H5 = L5
+        mod.L1 = Legend
+        mod.L2 = L2
+        mod.L3 = L3
+        mod.L4 = L4
+        mod.L5 = L5
         mod.Legend = Legend
         mod.LegendBot = LegendBot
         mod.tbot = LegendBot
