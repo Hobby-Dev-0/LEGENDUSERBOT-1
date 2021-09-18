@@ -7,7 +7,7 @@ CMD_LIST = {}
 LOAD_PLUG = {}
 
 from .session import L2, L3, L4, L5, Legend
-from userbot.Config import Config
+from ..config import Config
 bot = Legend
 
 def legend_cmd(
