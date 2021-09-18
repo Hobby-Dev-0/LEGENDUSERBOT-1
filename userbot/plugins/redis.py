@@ -47,7 +47,7 @@ async def _(event):
     pattern="renredis ?(.*)",
 )
 async def _(event):
-    ok = await eor(event, "`...`")
+    ok = await eor(event, "`Finding`")
     delim = " " if re.search("[|]", event.pattern_match.group(1)) is None else " | "
     data = event.pattern_match.group(1).split(delim)
     if Redis(data[0]):
@@ -58,7 +58,7 @@ async def _(event):
             )
         )
     else:
-        await ok.edit("Key not found")
+        await event.edit("Key not found")
 
 
 @legend_cmd(
@@ -70,4 +70,4 @@ async def _(event):
     msg = ""
     for x in keys:
         msg += "• `{}`".format(x) + "\n"
-    await ok.edit("**List of Redis Keys :**\n{}".format(msg))
+    await event.edit("**List of Redis Keys :**\n{}".format(msg))
