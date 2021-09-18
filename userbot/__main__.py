@@ -163,9 +163,10 @@ async def addons():
         extra_repo = "https://github.com/LEGENDS-OP/LegendBot-Addons"
         try:
             os.system(f"git clone {extra_repo}")  
-        except BaseException:pass
+        except BaseException:
+            pass
         LOGS.info("Loading Addons")
-        path = "Extra/*.py"
+        path = "LegendBot-Addons/*.py"
         files = glob.glob(path)
         for name in files:
             with open(name) as ex:
