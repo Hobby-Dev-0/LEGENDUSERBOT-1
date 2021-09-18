@@ -180,7 +180,7 @@ async def addons():
             LOGS.warning(f"LEGEND-BOT 3.0 - Addons - ERROR - {shortname}")
             LOGS.warning(str(e))
 
-if k = True:
+if k == "True":
     bot.loop.create_task(addons())
     
 print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {LEGENDversion}
