@@ -99,7 +99,7 @@ class Config(object):
     if FBAN_GROUP_ID:
         FBAN_GROUP_ID = int(FBAN_GROUP_ID)
     EXCLUDE_FED = os.environ.get("EXCLUDE_FED", None)
-
+    ABUSE = os.environ.get("ABUSE", None)
 
 class Development(Config):
     LOGGER = True
