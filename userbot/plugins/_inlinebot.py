@@ -443,7 +443,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         else:
             result += f"**💬 𝙴𝚡𝚙𝚕𝚊𝚗𝚊𝚝𝚒𝚘𝚗 :**  `{command['usage']}`\n"
             result += f"**⌨️ 𝙵𝚘𝚛 𝙴𝚡𝚊𝚖𝚙𝚕𝚎 :**  `{COMMAND_HAND_LER[:1]}{command['example']}`\n\n"
-        if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
+        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
                 result,
                 buttons=[
