@@ -159,29 +159,30 @@ if LOAD_ASSISTANT == True:
 
 addon = dB.get("ADDONS") or False                
 async def addons():
-  extra_repo = "https://github.com/LEGENDS-OP/LegendBot-Addons"
-  if Config.EXTRA == "True":
-    try:
-      os.system(f"git clone {extra_repo}")  
-    except BaseException:
-      pass
-    LOGS.info("Loading Addons")
-    path = "Extra/*.py"
-    files = glob.glob(path)
-    for name in files:
-      with open(name) as ex:
-        path2 = Path(ex.name)
-        shortname = path2.stem
+    if addon == "True":
+        extra_repo = "https://github.com/LEGENDS-OP/LegendBot-Addons"
         try:
-            load_addons(shortname.replace(".py", ""))
-            if not shortname.startswith("__") or shortname.startswith("_"):
-                LOGS.info(f"LEGEND-BOT 3.0 - Addons -  Installed - {shortname}")
-        except Exception as e:
-            LOGS.warning(f"LEGEND-BOT 3.0 - Addons - ERROR - {shortname}")
-            LOGS.warning(str(e))
+            os.system(f"git clone {extra_repo}")  
+        except BaseException:pass
+        LOGS.info("Loading Addons")
+        path = "Extra/*.py"
+        files = glob.glob(path)
+        for name in files:
+            with open(name) as ex:
+                path2 = Path(ex.name)
+                shortname = path2.stem
+                try:
+                    load_addons(shortname.replace(".py", ""))
+                    if not shortname.startswith("__") or shortname.startswith("_"):
+                        LOGS.info(f"LEGEND-BOT 3.0 - Addons -  Installed - {shortname}")
+                except Exception as e:
+                    LOGS.warning(f"LEGEND-BOT 3.0 - Addons - ERROR - {shortname}")
+                    LOGS.warning(str(e))
+    else:
+        print("Addons Not Loading")
 
-if k == "True":
-    bot.loop.create_task(addons())
+
+bot.loop.create_task(addons())
     
 print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {LEGENDversion}
 TYPE :- " .gpromote @Its_LegendBoy " OR .legend OR .ping CHECK IF I'M ON!
