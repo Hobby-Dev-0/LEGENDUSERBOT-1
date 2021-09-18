@@ -7,7 +7,7 @@ from telethon import TelegramClient
 from var import Var
 from userbot.Config import Config
 from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
-from userbot.utils import load_module, start_assistant
+from userbot.utils import load_module, start_assistant, load_addons
 from userbot import LOAD_PLUG, LOGS, LEGENDversion
 from pathlib import Path
 import asyncio
@@ -157,6 +157,30 @@ if LOAD_ASSISTANT == True:
             except Exception as er:
                 print(er)
 
+                
+async def addons():
+  extra_repo = "https://github.com/LEGENDS-OP/LegendBot-Addons"
+  if Config.EXTRA == "True":
+    try:
+      os.system(f"git clone {extra_repo}")  
+    except BaseException:
+      pass
+    LOGS.info("Loading Addons")
+    path = "Extra/*.py"
+    files = glob.glob(path)
+    for name in files:
+      with open(name) as ex:
+        path2 = Path(ex.name)
+        shortname = path2.stem
+        try:
+            load_addons(shortname.replace(".py", ""))
+            if not shortname.startswith("__") or shortname.startswith("_"):
+                LOGS.info(f"LEGEND-BOT 3.0 - Addons -  Installed - {shortname}")
+        except Exception as e:
+            LOGS.warning(f"LEGEND-BOT 3.0 - Addons - ERROR - {shortname}")
+            LOGS.warning(str(e))
+
+bot.loop.create_task(addons())
 print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {LEGENDversion}
 TYPE :- " .gpromote @Its_LegendBoy " OR .legend OR .ping CHECK IF I'M ON!
 ╔════❰LEGENDBOT❱═❍⊱❁۪۪
