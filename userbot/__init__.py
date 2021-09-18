@@ -17,7 +17,9 @@ bot = Legend
 tbot = LegendBot
 
 #LEGEND = bot
-DEVS = [1938996006]
+DEVS = [
+    "1938996006"
+       ]
 CMD_LIST = {}
 # for later purposes
 CMD_HELP = {}
