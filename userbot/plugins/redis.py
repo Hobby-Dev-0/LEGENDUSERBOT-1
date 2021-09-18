@@ -13,7 +13,7 @@ async def _(event):
     data = event.pattern_match.group(1).split(delim)
     dB.set(data[0], data[1])
     redisdata = Redis(data[0])
-    await ok.edit(
+    await event.edit(
         "Redis Key Value Pair Updated\nKey : `{}`\nValue : `{}`".format(
             data[0], redisdata
         )
