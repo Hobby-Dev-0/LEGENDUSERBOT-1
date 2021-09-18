@@ -2,9 +2,18 @@ from userbot import *
 from userbot.utils import *
 from userbot.Config import Config
 from userbot.cmdhelp import CmdHelp
+mport datetime
+import time
+
+from .. import *
+from ..startup import *
+from ..config import Config
+from ..helpers import *
+from ..utils import *
+from ..helpers import *
+from telethon import version
 import datetime
 from telethon import version
-from . import *
 LEGEND_USER = bot.me.first_name
 Its_LegendBoy = bot.uid
 legend_mention = f"[{LEGEND_USER}](tg://user?id={Its_LegendBoy})"
