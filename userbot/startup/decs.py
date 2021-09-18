@@ -3,11 +3,12 @@ import re
 
 from pathlib import Path
 from telethon import events
+CMD_LIST = {}
+LOAD_PLUG = {}
 
-from .session import L2, L3, L4, L5
-from userbot import CMD_LIST, LOAD_PLUG, bot
+from .session import L2, L3, L4, L5, Legend
 from userbot.Config import Config
-
+bot = Legend
 
 def legend_cmd(
     pattern: str = None,
