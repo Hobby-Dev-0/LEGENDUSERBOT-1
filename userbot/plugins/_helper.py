@@ -23,8 +23,7 @@ msg = f"""
 """
 botname = Config.BOT_USERNAME
 
-@bot.on(admin_cmd(pattern="repo$"))
-@bot.on(sudo_cmd(pattern="repo$", allow_sudo=True))
+@legend_cmd(pattern="repo$")
 async def repo(event):
     try:
         legend = await bot.inline_query(botname, "repo")
