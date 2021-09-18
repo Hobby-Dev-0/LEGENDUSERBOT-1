@@ -5,6 +5,10 @@ from pathlib import Path
 from telethon import events
 CMD_LIST = {}
 LOAD_PLUG = {}
+BL_CHAT = "-1001500629429"
+SUDO_USERS = os.environ.get("SUDO_USERS", None)
+HANDLER = os.environ.get("COMMAND_HAND_LER", None)
+SUDO_HANDLER = os.environ.get("SUDO_HANDLER", ".") or "."0
 
 from .session import L2, L3, L4, L5, Legend
 from ..config import Config
