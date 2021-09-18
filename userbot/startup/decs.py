@@ -1,6 +1,6 @@
 import inspect
 import re
-
+import os
 from pathlib import Path
 from telethon import events
 CMD_LIST = {}
