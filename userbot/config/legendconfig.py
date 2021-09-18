@@ -160,50 +160,50 @@ class Config(object):
 
     NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 2))
         # emoji to be displayed  in help .legend
-     EMOJI_IN_HELP1 = os.environ.get("EMOJI_IN_HELP1", "⚜️ ")
-     EMOJI_IN_HELP2 = os.environ.get("EMOJI_IN_HELP2", "🌹 ")
+    EMOJI_IN_HELP1 = os.environ.get("EMOJI_IN_HELP1", "⚜️ ")
+    EMOJI_IN_HELP2 = os.environ.get("EMOJI_IN_HELP2", "🌹 ")
         # specify command handler that should be used for the plugins
         # this should be a valid "regex" pattern
-     COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", r"\.")
-     HANDLER = os.environ.get("COMMAND_HAND_LER", r"\.")
+    COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", r"\.")
+    HANDLER = os.environ.get("COMMAND_HAND_LER", r"\.")
       #custom animation to kang plugin
-     CUSTOM_STICKER_PACK_NAME = os.environ.get("CUSTOM_STICKER_PACK_NAME", None)
+    CUSTOM_STICKER_PACK_NAME = os.environ.get("CUSTOM_STICKER_PACK_NAME", None)
         # specify list of users allowed to use bot
         # WARNING: be careful who you grant access to your bot.
         # malicious users could do ".exec rm -rf /*"
-     SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
+    SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
         
-     ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
-     PM_PIC = os.environ.get("PM_PIC", None)
-     AWAKE_PIC = os.environ.get("AWAKE_PIC", None)
-     HELP_PIC = os.environ.get("OP_PIC", None)
-     ALIVE_MSG = os.environ.get("ALIVE_MSG", None)
-     PM_MSG = os.environ.get("PM_MSG", None)
-     INSTANT_BLOCK = os.environ.get("INSTANT_BLOCK", "DISABLE")
-     YOUR_GROUP = os.environ.get("YOUR_GROUP", "@Legend_Userbot")
-     YOUR_CHANNEL = os.environ.get("YOUR_CHANNEL", "@Its_LegendBot.")
-     BOT_PIC = os.environ.get("ALIVE_PIC", None)
+    ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
+    PM_PIC = os.environ.get("PM_PIC", None)
+    AWAKE_PIC = os.environ.get("AWAKE_PIC", None)
+    HELP_PIC = os.environ.get("OP_PIC", None)
+    ALIVE_MSG = os.environ.get("ALIVE_MSG", None)
+    PM_MSG = os.environ.get("PM_MSG", None)
+    INSTANT_BLOCK = os.environ.get("INSTANT_BLOCK", "DISABLE")
+    YOUR_GROUP = os.environ.get("YOUR_GROUP", "@Legend_Userbot")
+    YOUR_CHANNEL = os.environ.get("YOUR_CHANNEL", "@Its_LegendBot.")
+    BOT_PIC = os.environ.get("ALIVE_PIC", None)
         #auto bio
-     BIO_MSG = os.environ.get("ALIVE_MSG", None)
+    BIO_MSG = os.environ.get("ALIVE_MSG", None)
         #Lydia API
-     LYDIA_API = os.environ.get("LYDIA_API",None)
-     PLUGIN_CHANNEL = os.environ.get("PLUGIN_CHANNEL",None)
+    LYDIA_API = os.environ.get("LYDIA_API",None)
+    PLUGIN_CHANNEL = os.environ.get("PLUGIN_CHANNEL",None)
      
-     BOT_MODE = os.environ.get("BOT_MODE", "ON")
-     ABUSE = os.environ.get("ABUSE", None)
-     BOTLOG_CHATID = os.environ.get("PM_LOGGR_BOT_API_ID", None)
-     ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
-     BOY_OR_GIRL = os.environ.get("BOY_OR_GIRL", "BOY")
-     BOT_TRIGGER = os.environ.get("BOT_TRIGGER", "^/")
-     BOTMODE_LOG = int(os.environ.get("BOTMODE_LOG", False))
-     BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
-     BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
-     FORCE_SUB = os.environ.get("FORCE_SUB", None)
-     FORCE_CHANNEL_UN = os.environ.get("FORCE_CHANNEL_UN", None)
+    BOT_MODE = os.environ.get("BOT_MODE", "ON")
+    ABUSE = os.environ.get("ABUSE", None)
+    BOTLOG_CHATID = os.environ.get("PM_LOGGR_BOT_API_ID", None)
+    ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
+    BOY_OR_GIRL = os.environ.get("BOY_OR_GIRL", "BOY")
+    BOT_TRIGGER = os.environ.get("BOT_TRIGGER", "^/")
+    BOTMODE_LOG = int(os.environ.get("BOTMODE_LOG", False))
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
+    FORCE_SUB = os.environ.get("FORCE_SUB", None)
+    FORCE_CHANNEL_UN = os.environ.get("FORCE_CHANNEL_UN", None)
      
-     FORCE_CHANNEL_ID = int(os.environ.get("FORCE_CHANNEL_ID", False))
-     EXTRA_LEGENDBOT = os.environ.get("EXTRA_LEGENDBOT", -1001221881562)
-     PM_DATA = os.environ.get("PM_DATA", "ENABLE")
+    FORCE_CHANNEL_ID = int(os.environ.get("FORCE_CHANNEL_ID", False))
+    EXTRA_LEGENDBOT = os.environ.get("EXTRA_LEGENDBOT", -1001221881562)
+    PM_DATA = os.environ.get("PM_DATA", "ENABLE")
 
 class Production(Config):
     LOGGER = False
