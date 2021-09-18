@@ -1,13 +1,10 @@
-from userbot import *
-from userbot.utils import *
-from userbot.Config import Config
-from userbot.cmdhelp import CmdHelp
+
 import datetime
 import time
 
 from .. import *
 from ..startup import *
-
+from ..config import Config
 from telethon import version
 import datetime
 from telethon import version
@@ -22,7 +19,10 @@ LEGEND_logo3 = "./userbot/resources/pics/-4965507108355287505_121.jpg"
 LEGENDversion = "𝚅2.𝙾"
 
 perf = "[ †hê Lêɠêɳ̃dẞø† ]"
-
+from userbot import *
+from userbot.utils import *
+from userbot.Config import Config
+from userbot.cmdhelp import CmdHelp
 
 DEVLIST = [
     "1938996006"
