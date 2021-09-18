@@ -9,8 +9,8 @@ from .startup import *
 from .k import *
 BOTLOG = True
 StartTime = time.time()
-LEGENDversion = "𝚅2.𝙾"
-botversion = "𝚅1.𝙾"
+LEGENDversion = "𝚅3.𝙾"
+botversion = "𝚅3.𝙾"
 
 #New Tcp
 bot = Legend
