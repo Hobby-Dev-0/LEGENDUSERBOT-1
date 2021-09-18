@@ -80,3 +80,20 @@ def legend_cmd(
         return func
 
     return decorator
+
+def legend_handler(**args):
+    def decorator(func):
+        async def wrapper(event):
+            await func(event)
+        bot.add_event_handler(wrapper, events.NewMessage(**args))
+        if L2:
+            L2.add_event_handler(wrapper, events.NewMessage(**args))
+        if L3:
+            L3.add_event_handler(wrapper, events.NewMessage(**args))
+        if L4:
+            L4.add_event_handler(wrapper, events.NewMessage(**args))
+        if L5:
+            L5.add_event_handler(wrapper, events.NewMessage(**args))
+        return wrapper
+
+    return decorater
