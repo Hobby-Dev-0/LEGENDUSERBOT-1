@@ -2,7 +2,7 @@ from userbot import *
 from userbot.utils import *
 from userbot.Config import Config
 from userbot.cmdhelp import CmdHelp
-mport datetime
+import datetime
 import time
 
 from .. import *
