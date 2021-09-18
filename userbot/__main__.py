@@ -140,9 +140,9 @@ for name in files:
         try:
             load_module(shortname.replace(".py", ""))
             if not shortname.startswith("__") or shortname.startswith("_"):
-                LOGS.warning(f"LEGEND-BOT 3.0 - Official -  Installed - {plugin_name}")
+                LOGS.info(f"LEGEND-BOT 3.0 - Official -  Installed - {shortname}")
         except Exception as e:
-            LOGS.warning(f"LEGEND-BOT 3.0 - Official - ERROR - {plugin_name}")
+            LOGS.warning(f"LEGEND-BOT 3.0 - Official - ERROR - {shortname}")
             LOGS.warning(str(e))
 
 if LOAD_ASSISTANT == True:
