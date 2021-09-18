@@ -14,9 +14,9 @@ import asyncio
 import telethon.utils
 os.system("pip install -U telethon")
 
-l2= Config.SUDO_COMMAND_HAND_LER
+ll2= Config.SUDO_COMMAND_HAND_LER
 LEGEND_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/75e1eda1498620f0030ea.jpg"
-l1 = Config.COMMAND_HAND_LER
+ll = Config.COMMAND_HAND_LER
 
 
 LOAD_USERBOT = os.environ.get("LOAD_USERBOT", True)
@@ -202,7 +202,7 @@ async def legend_is_on():
             await bot.send_file(
                 Config.LOGGER_ID,
                 LEGEND_PIC,
-                caption=f"#START \n\nDeployed LEGENDBOT Successfully\n\n**LEGENDBOT- {LEGENDversion}**\n\nType `{l1}op` or `{l1}alive` to check! \n\nJoin [LegendBot Channel](t.me/Its_LegendBot) for Updates & [LegendBot Chat](t.me/Legend_Userbot) for any query regarding LegendBot",
+                caption=f"#START \n\nDeployed LEGENDBOT Successfully\n\n**LEGENDBOT- {LEGENDversion}**\n\nType `{ll}op` or `{ll}alive` to check! \n\nJoin [LegendBot Channel](t.me/Its_LegendBot) for Updates & [LegendBot Chat](t.me/Legend_Userbot) for any query regarding LegendBot",
             )
     except Exception as e:
         print(str(e))
