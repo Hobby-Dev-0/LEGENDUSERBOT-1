@@ -52,7 +52,7 @@ async def _(event):
     data = event.pattern_match.group(1).split(delim)
     if Redis(data[0]):
         dB.rename(data[0], data[1])
-        await ok.edit(
+        await event.edit(
             "Redis Key Rename Successful\nOld Key : `{}`\nNew Key : `{}`".format(
                 data[0], data[1]
             )
