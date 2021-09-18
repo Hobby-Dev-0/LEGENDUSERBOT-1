@@ -137,7 +137,13 @@ for name in files:
     with open(name) as f:
         path1 = Path(f.name)
         shortname = path1.stem
-        load_module(shortname.replace(".py", ""))
+        try:
+            load_module(shortname.replace(".py", ""))
+            if not shortname.startswith("__") or shortname.startswith("_"):
+                LOGS.warning(f"LEGEND-BOT 3.0 - Official -  Installed - {plugin_name}")
+        except Exception as e:
+            LOGS.warning(f"LEGEND-BOT 3.0 - Official - ERROR - {plugin_name}")
+            LOGS.warning(str(e))
 
 if LOAD_ASSISTANT == True:
     path = "userbot/plugins/assistant/*.py"
