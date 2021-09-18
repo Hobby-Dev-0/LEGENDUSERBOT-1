@@ -5,7 +5,7 @@ import requests
 from telethon import functions
 from . import *
 from userbot import ALIVE_NAME, CMD_LIST, SUDO_LIST
-from LEGENDBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
+from LEGENDBOT.utils import admin_cmd, edit_or_reply, sudo_cmd, eor
 
 perf = "[ †hê Lêɠêɳ̃dẞø† ]"
 
@@ -23,17 +23,19 @@ msg = f"""
 """
 botname = Config.BOT_USERNAME
 
-@legend_cmd(pattern="repo$")
+@hell_cmd(pattern="repo$")
 async def repo(event):
+    cids = await client_id(event)
+    Its_LegendBoy, LEGEND_USER, legend_mention = cids[0], cids[1], cids[2]
     try:
-        legend = await bot.inline_query(botname, "repo")
+        legend = await event.client.inline_query(botname, "repo")
         await legend[0].click(event.chat_id)
         if event.sender_id == Its_LegendBoy:
             await event.delete()
     except (noin, dedbot):
         await eor(event, msg)
 
-@legend_cmd(pattern="op$")
+@legend_cmd(pattern="help ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -68,7 +70,7 @@ async def _(event):
 
 
 
-@legend_cmd(pattern="plinfo$")
+@legend_cmd(pattern="plinfo(?: |$)(.*)")
 async def legendbott(event):
     if event.fwd_from:
         return
@@ -77,7 +79,7 @@ async def legendbott(event):
         if args in CMD_HELP:
             await eor(event, str(CMD_HELP[args]))
         else:
-            await eor(event, "**⚠️ 𝙴𝚛𝚛𝚘𝚛 !** \n𝙽𝚎𝚎𝚍 𝚊 Plugin 𝚗𝚊𝚖𝚎 𝚝𝚘 𝚜𝚑𝚘𝚠 𝚙𝚕𝚞𝚐𝚒𝚗 𝚒𝚗𝚏𝚘")
+            await eod(event, "**⚠️ 𝙴𝚛𝚛𝚘𝚛 !** \n𝙽𝚎𝚎𝚍 𝚊 Plugin 𝚗𝚊𝚖𝚎 𝚝𝚘 𝚜𝚑𝚘𝚠 𝚙𝚕𝚞𝚐𝚒𝚗 𝚒𝚗𝚏𝚘")
     else:
         string = ""
         sayfa = [
