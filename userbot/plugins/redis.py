@@ -9,18 +9,15 @@ Redis = dB.get
 )
 async def _(event):
     ok = await eor(event, "`...`")
-    try:
-        delim = " " if re.search("[|]", event.pattern_match.group(1)) is None else " | "
-        data = event.pattern_match.group(1).split(delim)
-        udB.set(data[0], data[1])
-        redisdata = Redis(data[0])
-        await ok.edit(
-            "Redis Key Value Pair Updated\nKey : `{}`\nValue : `{}`".format(
-                data[0], redisdata
-            )
+    delim = " " if re.search("[|]", event.pattern_match.group(1)) is None else " | "
+    data = event.pattern_match.group(1).split(delim)
+    dB.set(data[0], data[1])
+    redisdata = Redis(data[0])
+    await ok.edit(
+        "Redis Key Value Pair Updated\nKey : `{}`\nValue : `{}`".format(
+            data[0], redisdata
         )
-    except BaseException:
-        await ok.edit("`Something Went Wrong`")
+    )
 
 
 @legend_cmd(
@@ -31,11 +28,9 @@ async def _(event):
     val = event.pattern_match.group(1)
     if val == "":
         return await event.edit(f"Please use `{hndlr}getkeys <keyname>`")
-    try:
+    else:
         value = Redis(val)
-        await ok.edit("Key: `{}`\nValue: `{}`".format(val, value))
-    except BaseException:
-        await ok.edit("`Something Went Wrong`")
+        await event.edit("Key: `{}`\nValue: `{}`".format(val, value))
 
 
 @legend_cmd(
@@ -43,12 +38,9 @@ async def _(event):
 )
 async def _(event):
     ok = await eor(event, "`Deleting data from Redis ...`")
-    try:
-        key = event.pattern_match.group(1)
-        dB.delete(key)
-        await ok.edit(f"`Successfully deleted key {key}`")
-    except BaseException:
-        await ok.edit("`Something Went Wrong`")
+    key = event.pattern_match.group(1)
+    dB.delete(key)
+    await ok.edit(f"`Successfully deleted key {key}`")
 
 
 @legend_cmd(
@@ -59,15 +51,12 @@ async def _(event):
     delim = " " if re.search("[|]", event.pattern_match.group(1)) is None else " | "
     data = event.pattern_match.group(1).split(delim)
     if Redis(data[0]):
-        try:
-            dB.rename(data[0], data[1])
-            await ok.edit(
-                "Redis Key Rename Successful\nOld Key : `{}`\nNew Key : `{}`".format(
-                    data[0], data[1]
-                )
+        dB.rename(data[0], data[1])
+        await ok.edit(
+            "Redis Key Rename Successful\nOld Key : `{}`\nNew Key : `{}`".format(
+                data[0], data[1]
             )
-        except BaseException:
-            await ok.edit("Something went wrong ...")
+        )
     else:
         await ok.edit("Key not found")
 
