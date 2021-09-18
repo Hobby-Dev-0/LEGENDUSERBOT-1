@@ -162,6 +162,7 @@ def load_module(shortname):
         mod.Config = Config
         mod.borg = bot
         mod.LEGENDBOT = bot
+        mod.legend_cmd = admin_cmd
         mod.legend_cmd = legend_cmd
         mod.edit_or_reply = edit_or_reply
         mod.delete_LEGEND = delete_LEGEND
