@@ -24,7 +24,7 @@ hndlr = dB.get("HANDLER")
     pattern="getredis ?(.*)",
 )
 async def _(event):
-    ok = await event.edit(event, "`Fetching data from Redis`")
+    ok = await eor(event, "`Fetching data from Redis`")
     val = event.pattern_match.group(1)
     if val == "":
         return await event.edit(f"Please use `{hndlr}getkeys <keyname>`")
