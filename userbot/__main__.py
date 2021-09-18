@@ -157,7 +157,7 @@ if LOAD_ASSISTANT == True:
             except Exception as er:
                 print(er)
 
-                
+addon = dB.get("ADDONS") or False                
 async def addons():
   extra_repo = "https://github.com/LEGENDS-OP/LegendBot-Addons"
   if Config.EXTRA == "True":
@@ -180,7 +180,9 @@ async def addons():
             LOGS.warning(f"LEGEND-BOT 3.0 - Addons - ERROR - {shortname}")
             LOGS.warning(str(e))
 
-bot.loop.create_task(addons())
+if k = True:
+    bot.loop.create_task(addons())
+    
 print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {LEGENDversion}
 TYPE :- " .gpromote @Its_LegendBoy " OR .legend OR .ping CHECK IF I'M ON!
 ╔════❰LEGENDBOT❱═❍⊱❁۪۪
