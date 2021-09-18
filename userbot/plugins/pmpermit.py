@@ -12,8 +12,8 @@ from userbot import ALIVE_NAME, PM_MSG, LEGEND_ID
 from userbot.Config import Config
 from LEGENDBOT.utils import admin_cmd
 from userbot.cmdhelp import CmdHelp
-from userbot.plugins.sql_helper import pmpermit_sql as pm_sql
-
+#from userbot.plugins.sql_helper import pmpermit_sql as pm_sql
+pm_sql = "db"
 
 WARN_PIC = Config.PM_PIC or "https://telegra.ph/file/fcfb3d70fceb0c6ddf151.jpg"
 PM_WARNS = {}
