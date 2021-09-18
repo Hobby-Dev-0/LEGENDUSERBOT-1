@@ -177,7 +177,7 @@ def load_module(shortname):
 
 #LegendBot-Addons
 
-def addons:
+#def addons:
     
 def load_addons(shortname):
     if shortname.startswith("__"):
