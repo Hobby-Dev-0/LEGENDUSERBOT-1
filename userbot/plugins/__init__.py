@@ -33,7 +33,7 @@ async def get_user_id(ids):
     return userid
 
 ld = Config.COMMAND_HAND_LER
-ld = Config.SUDO_COMMAND_HAND_LER
+lds = Config.SUDO_COMMAND_HAND_LER
 sudos = Config.SUDO_USERS
 if sudos:
     is_sudo = "True"
