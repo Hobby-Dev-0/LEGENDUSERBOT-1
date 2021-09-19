@@ -3,7 +3,7 @@ import random
 import time
 from telethon.errors import ChatSendInlineForbiddenError as noin
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
-from userbot.Config import Config
+from userbot.Config.Config import Config
 from telethon import version
 from userbot import ALIVE_NAME, StartTime, LEGENDversion
 from LEGENDBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
@@ -59,8 +59,7 @@ def get_readable_time(seconds: int) -> str:
 uptime = get_readable_time((time.time() - StartTime))
 
 
-@bot.on(admin_cmd(outgoing=True, pattern="legend$"))
-@bot.on(sudo_cmd(pattern="legend$", allow_sudo=True))
+@legend_cmd(pattern="legend$")
 async def amireallyalive(alive):
     if alive.fwd_from:
         return
@@ -112,8 +111,7 @@ msg = f"""
 """
 botname = Config.BOT_USERNAME
 
-@bot.on(admin_cmd(pattern="alive$"))
-@bot.on(admin_cmd(pattern="alive$", allow_sudo=True))
+@legend_cmd(pattern="alive$")
 async def legend_a(event):
     try:
         legend = await bot.inline_query(botname, "alive")
