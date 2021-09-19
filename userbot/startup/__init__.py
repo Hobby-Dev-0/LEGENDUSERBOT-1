@@ -47,4 +47,9 @@ async def client_id(event):
     Its_LegendBoy = uid
     LEGEND_USER = client.first_name
     legend_mention = f"[{LEGEND_USER}](tg://user?id={Its_LegendBoy})"
-    return Its_LegendBoy, LEGEND_USER, legend_mention
+    client = await event.client.get_me()
+    uid = telethon.utils.get_peer_id(client)
+    ForGo10God = uid
+    HELL_USER = client.first_name
+    hell_mention = f"[{HELL_USER}](tg://user?id={ForGo10God})"
+    return Its_LegendBoy, LEGEND_USER, legend_mention, ForGo10God, HELL_USER, hell_mention # Added Support of Hellbot Support on public request
