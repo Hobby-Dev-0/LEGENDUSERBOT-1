@@ -182,8 +182,8 @@ def legend_handler(**args):
             L4.add_event_handler(wrapper, events.NewMessage(**args))
         if L5:
             L5.add_event_handler(wrapper, events.NewMessage(**args))
+            
         return wrapper
-    return decorater
 
 
 def errors_handler(func):
