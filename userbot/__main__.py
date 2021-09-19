@@ -15,9 +15,8 @@ import asyncio
 import telethon.utils
 os.system("pip install -U telethon")
 
-ll2= Config.SUDO_COMMAND_HAND_LER
-LEGEND_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/75e1eda1498620f0030ea.jpg"
-ll = Config.COMMAND_HAND_LER
+ll2= dB.get("SUDO_COMMAND_HAND_LER")
+ll = dB.get("COMMAND_HAND_LER")
 
    
 
@@ -137,7 +136,7 @@ bot.loop.run_until_complete(addons())
 
 from PIL import Image
 with Image.open('legend.jpg') as img:
-img.show()
+   img.show()
 
 bot.loop.create_task(pic())
 print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {LEGENDversion}
