@@ -49,75 +49,7 @@ else:
     if os.path.exists("config.py"):
         from config import Development as Config
 
-def command(**args):
-    args["func"] = lambda e: e.via_bot_id is None
 
-    stack = inspect.stack()
-    previous_stack_frame = stack[1]
-    file_test = Path(previous_stack_frame.filename)
-    file_test = file_test.stem.replace(".py", "")
-    if 1 == 0:
-        return print("stupidity at its best")
-    else:
-        pattern = args.get("pattern", None)
-        allow_sudo = args.get("allow_sudo", None)
-        allow_edited_updates = args.get('allow_edited_updates', False)
-        args["incoming"] = args.get("incoming", False)
-        args["outgoing"] = True
-        if bool(args["incoming"]):
-            args["outgoing"] = False
-
-        try:
-            if pattern is not None and not pattern.startswith('(?i)'):
-                args['pattern'] = '(?i)' + pattern
-        except:
-            pass
-
-        reg = re.compile('(.*)')
-        if not pattern == None:
-            try:
-                cmd = re.search(reg, pattern)
-                try:
-                    cmd = cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
-                except:
-                    pass
-
-                try:
-                    CMD_LIST[file_test].append(cmd)
-                except:
-                    CMD_LIST.update({file_test: [cmd]})
-            except:
-                pass
-
-        if allow_sudo:
-            args["from_users"] = list(Config.SUDO_USERS)
-            # Mutually exclusive with outgoing (can only set one of either).
-            args["incoming"] = True
-        del allow_sudo
-        try:
-            del args["allow_sudo"]
-        except:
-            pass
-        
-        args["blacklist_chats"] = True
-        black_list_chats = list(Config.UB_BLACK_LIST_CHAT)
-        if len(black_list_chats) > 0:
-            args["chats"] = black_list_chats
-
-        if "allow_edited_updates" in args:
-            del args['allow_edited_updates']
-
-        def decorator(func):
-            if allow_edited_updates:
-                bot.add_event_handler(func, events.MessageEdited(**args))
-            bot.add_event_handler(func, events.NewMessage(**args))
-            try:
-                LOAD_PLUG[file_test].append(func)
-            except:
-                LOAD_PLUG.update({file_test: [func]})
-            return func
-
-        return decorator
 
 def load_module(shortname):
     if shortname.startswith("__"):
@@ -205,11 +137,11 @@ def load_addons(shortname):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = Legend
-        mod.H1 = Legend
-        mod.H2 = L2
-        mod.H3 = L3
-        mod.H4 = L4
-        mod.H5 = L5
+        mod.L1 = Legend
+        mod.L2 = L2
+        mod.L3 = L3
+        mod.L4 = L4
+        mod.L5 = L5
         mod.Legend = Legend
         mod.LegendBot = LegendBot
         mod.tbot = LegendBot
@@ -467,8 +399,7 @@ async def delete_LEGEND(event, text, time=None, parse_mode=None, link_preview=No
     await asyncio.sleep(time)
     return await LEGENDevent.delete()
 
-# from paperplaneextended
-on = bot.on
+
 
 
 async def eor(
@@ -536,40 +467,26 @@ async def eor(
     await event.delete()
     os.remove(file_name)
 
-async def delete_LEGEND(event, text, time=None, parse_mode=None, link_preview=None):
-    parse_mode = parse_mode or "md"
-    link_preview = link_preview or False
-    time = time or 5
-    if event.sender_id in Config.SUDO_USERS:
-        reply_to = await event.get_reply_message()
-        LEGENDevent = (
-            await reply_to.reply(text, link_preview=link_preview, parse_mode=parse_mode)
-            if reply_to
-            else await event.reply(
-                text, link_preview=link_preview, parse_mode=parse_mode
-            )
-        )
-    else:
-        LEGENDevent = await event.edit(
-            text, link_preview=link_preview, parse_mode=parse_mode
-        )
-    await asyncio.sleep(time)
-    return await LEGENDevent.delete()
-
 # from paperplaneextended
 on = bot.on
-
 
 def on(**args):
     def decorator(func):
         async def wrapper(event):
-            # do things like check if sudo
             await func(event)
-
-        client.add_event_handler(wrapper, events.NewMessage(**args))
+        bot.add_event_handler(wrapper, events.NewMessage(**args))
+        if L2:
+            L2.add_event_handler(wrapper, events.NewMessage(**args))
+        if L3:
+            L3.add_event_handler(wrapper, events.NewMessage(**args))
+        if L4:
+            L4.add_event_handler(wrapper, events.NewMessage(**args))
+        if L5:
+            L5.add_event_handler(wrapper, events.NewMessage(**args))
         return wrapper
 
     return decorater
+
 
 
 def errors_handler(func):
@@ -770,7 +687,7 @@ def register(**args):
 
     # add blacklist chats, UB should not respond in these chats
     args["blacklist_chats"] = True
-    black_list_chats = list(Config.UB_BLACK_LIST_CHAT)
+    black_list_chats = list(Config.BL_CHAT)
     if len(black_list_chats) > 0:
         args["chats"] = black_list_chats
 
@@ -778,6 +695,14 @@ def register(**args):
         if not disable_edited:
             bot.add_event_handler(func, events.MessageEdited(**args))
         bot.add_event_handler(func, events.NewMessage(**args))
+        if L2:
+            L2.add_event_handler(func, events.NewMessage(**args))
+        if L3:
+            L3.add_event_handler(func, events.NewMessage(**args))
+        if L4:
+            L4.add_event_handler(func, events.NewMessage(**args))
+        if L5:
+            L5.add_event_handler(func, events.NewMessage(**args))
         try:
             LOAD_PLUG[file_test].append(func)
         except Exception:
@@ -834,7 +759,7 @@ def command(**args):
         pass
 
     args["blacklist_chats"] = True
-    black_list_chats = list(Config.UB_BLACK_LIST_CHAT)
+    black_list_chats = list(Config.BL_CHAT)
     if len(black_list_chats) > 0:
         args["chats"] = black_list_chats
 
@@ -845,13 +770,21 @@ def command(**args):
         if allow_edited_updates:
             bot.add_event_handler(func, events.MessageEdited(**args))
         bot.add_event_handler(func, events.NewMessage(**args))
+        if L2:
+            L2.add_event_handler(func, events.NewMessage(**args))
+        if L3:
+            L3.add_event_handler(func, events.NewMessage(**args))
+        if L4:
+            L4.add_event_handler(func, events.NewMessage(**args))
+        if L5:
+            L5.add_event_handler(func, events.NewMessage(**args))
         try:
             LOAD_PLUG[file_test].append(func)
         except BaseException:
             LOAD_PLUG.update({file_test: [func]})
         return func
 
-    return decorator
+    return decorator   
 
 
 #Assistant
