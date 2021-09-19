@@ -122,5 +122,7 @@ async def legend_a(event):
         await eor(event, msg)
 
 CmdHelp("alive").add_command(
-    'bot', None, 'υѕє αи∂ ѕєє'
+    'alive', None, 'υѕє αи∂ ѕєє'
+).add_command(
+    'legend', None, 'Use and See'
 ).add()
