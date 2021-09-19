@@ -100,12 +100,15 @@ def button(page, modules):
 
     modules = CMD_HELP
 if Config.BOT_USERNAME is not None and tgbot is not None:
-    @tgbot.on(InlineQuery)  # pylint:disable=E0602
+    @tgbot.on(InlineQuery)
     async def inline_handler(event):
+        cids = await client_id(event)
+        Its_LegendBoy, LEGEND_USER, legend_mention = cids[0], cids[1], cids[2]
         builder = event.builder
         result = None
         query = event.text
-        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid and query == "legendbot_help":
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+        if event.query.user_id in auth and query == "legendbot_help":
             rev_text = query[::-1]
             veriler = button(0, sorted(CMD_HELP))
             apn = []
@@ -156,7 +159,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 )
             ]
  
-        elif event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid and query == "alive":
+        elif event.query.user_id in auth and query == "alive":
             leg_end = alive_txt.format(Config.ALIVE_MSG, legend_mention, LEGENDversion, version.__version__, abuse_m, is_sudo, Config.BOY_OR_GIRL)
             alv_btn = [
                 [Button.url(f"{LEGEND_USER}", f"tg://openmessage?user_id={Its_LegendBoy}")],
@@ -186,7 +189,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     link_preview=False,
                 )
 
-        elif event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid and query == "pm_warn":
+        elif event.query.user_id == bot.uid and query == "pm_warn":
             lege_nd = LEGEND_FIRST.format(legend_mention, mssge)
             result = builder.photo(
                 file=legend_pic,
@@ -201,7 +204,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 ],
             )
 
-        elif event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid and query == "repo":
+        elif event.query.user_id == bot.uid and query == "repo":
             result = builder.article(
                 title="Repository",
                 text=f"**⚜ 𝙻𝚎𝚐𝚎𝚗𝚍𝚊𝚛𝚢 𝙰𝚏 𝙻𝚎𝚐𝚎𝚗𝚍𝙱𝚘𝚝 ⚜**",
@@ -370,7 +373,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         for x in CMD_LIST.values():
             for y in x:
                 apn.append(y)
-        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid or event.query.user_id in Config.SUDO_USERS:
+        if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
                 f"**𓆩♥️{legend_mention}♥️𓆪**\n\n**🕹️𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍⭆ `{len(CMD_HELP)}`**\n**⌨️𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`**\n**🎒𝙿𝚊𝚐𝚎⭆ {page + 1}/{veriler[0]}**",
                 buttons=veriler[1],
