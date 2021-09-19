@@ -26,7 +26,6 @@ botname = Config.BOT_USERNAME
 @legend_cmd(pattern="repo$")
 async def repo(event):
     cids = await client_id(event)
-    Its_LegendBoy, LEGEND_USER, legend_mention = cids[0], cids[1], cids[2]
     try:
         legend = await event.client.inline_query(botname, "repo")
         await legend[0].click(event.chat_id)
@@ -61,7 +60,7 @@ async def _(event):
                     await bot.send_read_acknowledge(conv.chat_id)
                 except YouBlockedUserError:
                     return await legend.edit("Unblock @Botfather first.")
-                await legend.edit(f"**Turned On Inline Mode Successfully.** \n\nDo `{l1}op` again to get the help menu.")
+                await legend.edit(f"**Turned On Inline Mode Successfully.** \n\nDo `{ld}op` again to get the help menu.")
             await bot.delete_messages(
                 conv.chat_id, [first.id, second.id, third.id, fourth.id, fifth.id, sixth.id]
             )
