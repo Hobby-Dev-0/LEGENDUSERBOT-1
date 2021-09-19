@@ -2,7 +2,7 @@
 from .decs import legend_cmd
 from .session import Legend, L2, L3, L4, L5, LegendBot
 import telethon.utils
-from userbot.Config import Config
+from userbot import *
 
 
 async def clients_list(Config, Legend, L2, L3, L4, L5):
@@ -47,4 +47,4 @@ async def client_id(event):
     Its_LegendBoy = uid
     LEGEND_USER = client.first_name
     legend_mention = f"[{LEGEND_USER}](tg://user?id={Its_LegendBoy})"
-    return Its_LegendBoy, LEGEND_USER, LEGEND_mention
+    return Its_LegendBoy, LEGEND_USER, legend_mention
