@@ -14,7 +14,7 @@ from userbot import LOAD_PLUG, LOGS, LEGENDversion
 from pathlib import Path
 import asyncio
 import telethon.utils
-
+import glob
 LOAD_USERBOT = dB.get("LOAD_USERBOT") or False
 LOAD_ASSISTANT = dB.get("LOAD_ASSISTANT") or False 
 
@@ -54,6 +54,7 @@ async def addons():
             os.system(f"git clone {extra_repo}")  
         except BaseException:
             pass
+        import glob
         LOGS.info("Loading Addons")
         path = "LegendBot-Addons/*.py"
         files = glob.glob(path)
