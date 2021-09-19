@@ -35,7 +35,7 @@ async def repo(event):
     except (noin, dedbot):
         await eor(event, msg)
 
-@legend_cmd(pattern="help ?(.*)")
+@legend_cmd(pattern="help$")
 async def _(event):
     if event.fwd_from:
         return
