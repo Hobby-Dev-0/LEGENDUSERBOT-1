@@ -5,7 +5,7 @@ from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 import os
 from telethon import TelegramClient
 from var import Var
-from userbot.Config import Config
+from userbot.config.Config import Config
 from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
 from userbot.utils import load_module, start_assistant, load_addons
 from userbot import LOAD_PLUG, LOGS, LEGENDversion
