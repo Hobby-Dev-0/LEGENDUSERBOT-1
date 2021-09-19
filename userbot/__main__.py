@@ -130,9 +130,9 @@ else:
         sys.exit()
 
 
-bot.loop.create_task(module())
-bot.loop.create_task(assistant())
-bot.loop.create_task(addons())
+bot.loop.run_until_complete(module())
+bot.loop.run_until_complete(assistant())
+bot.loop.run_until_complete(addons())
     
 print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {LEGENDversion}
 TYPE :- " .gpromote @Its_LegendBoy " OR .legend OR .ping CHECK IF I'M ON!
@@ -147,7 +147,7 @@ TYPE :- " .gpromote @Its_LegendBoy " OR .legend OR .ping CHECK IF I'M ON!
 
 
 
-bot.loop.create_task(legend_is_on())
+(legend_is_on())
 
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
