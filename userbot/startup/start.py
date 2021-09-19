@@ -14,6 +14,10 @@ from userbot import LOAD_PLUG, LOGS, LEGENDversion
 from pathlib import Path
 import asyncio
 import telethon.utils
+
+LOAD_USERBOT = dB.get("LOAD_USERBOT") or False
+LOAD_ASSISTANT = dB.get("LOAD_ASSISTANT") or False 
+
 async def module():
   import glob
   path = 'userbot/plugins/*.py'
