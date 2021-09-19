@@ -3,7 +3,7 @@ import sys
 import time
 from telethon.sessions import StringSession
 from telethon import TelegramClient
-from userbot.config.Config import Config
+from userbot.Config.Config import Config
 from var import Var
 from .startup import *
 from .k import *
