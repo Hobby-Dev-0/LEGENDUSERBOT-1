@@ -133,21 +133,24 @@ else:
 bot.loop.run_until_complete(module())
 bot.loop.run_until_complete(assistant())
 bot.loop.run_until_complete(addons())
-    
+os.system("pip3 install simple-imshow")
+from simshow import simshow
+simshow('https://telegra.ph/file/75e1eda1498620f0030ea.jpg')  # display from url
+#rom PIL import Image
+#ith Image.open('https://telegra.ph/file/75e1eda1498620f0030ea.jpg') as img:
+ #  img.show()
+      
 print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {LEGENDversion}
 TYPE :- " .gpromote @Its_LegendBoy " OR .legend OR .ping CHECK IF I'M ON!
 ╔════❰LEGENDBOT❱═❍⊱❁۪۪
-║┣⪼ OWNER - LEGEND
-║┣⪼{LEGEND_PIC}
-║┣⪼ CREATOR -@Its_LegendBoy
-║┣⪼ TELETHON - 1.2.0
+║┣⪼ Version - 3.0
+║┣⪼ TELETHON - 1.23.0
+║┣⪼ Redis Status - Working Fine
 ║┣⪼ ✨ 『🔱🇱 🇪 🇬 🇪 🇳 🇩 🔱』𝐔𝐬𝐞𝐫𝐛𝐨𝐭✨
 ║╰━━━━━━━━━━━━━━━➣
 ╚══════════════════❍⊱""")
 
 
-
-(legend_is_on())
 
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
