@@ -146,7 +146,7 @@ async def unload(event):
         )
 
 
-@hell_cmd(pattern=r"load (?P<shortname>\w+)$")
+@legend_cmd(pattern=r"load (?P<shortname>\w+)$")
 async def load(event):
     shortname = event.pattern_match["shortname"]
     try:
