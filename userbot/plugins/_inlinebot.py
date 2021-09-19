@@ -103,7 +103,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
     @tgbot.on(InlineQuery)
     async def inline_handler(event):
         cids = await client_id(event)
-
         builder = event.builder
         result = None
         query = event.text
