@@ -125,8 +125,9 @@ def legend_cmd(
         except Exception:
             LOAD_PLUG.update({file_test: [func]})
         return func
-    return wrapper
-return decorator
+        return wrapper
+        
+    return decorator
 
 def legend_handler(**args):
     def decorator(func):
