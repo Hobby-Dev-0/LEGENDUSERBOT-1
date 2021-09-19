@@ -6,6 +6,8 @@ import sys
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 import os
 from telethon import TelegramClient
+ALIVE_PIC = dB.get("ALIVE_PIC")
+LEGEND_PIC = ALIVE_PIC or "https://telegra.ph/file/75e1eda1498620f0030ea.jpg"
 from var import Var
 from userbot.config.Config import Config
 from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
