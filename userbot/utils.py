@@ -44,7 +44,7 @@ from typing import List
 
 ENV = bool(os.environ.get("ENV", False))
 if ENV:
-    from userbot.Config import Config
+    from userbot.config.Config import Config
 else:
     if os.path.exists("config.py"):
         from config import Development as Config
