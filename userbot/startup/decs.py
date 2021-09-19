@@ -172,7 +172,7 @@ def legend_handler(**args):
             else:
                 print("Logs Not Working Fine")
             
-        await func(event)
+            await func(event)
         bot.add_event_handler(wrapper, events.NewMessage(**args))
         if L2:
             L2.add_event_handler(wrapper, events.NewMessage(**args))
