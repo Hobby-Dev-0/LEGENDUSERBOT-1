@@ -14,7 +14,7 @@ legend = bot.uid
 LEGEND = f"[{DEFAULTUSER}](tg://user?id={legend})"
 
 
-@hell_cmd(pattern=r"send (?P<shortname>\w+)")
+@legend_cmd(pattern=r"send (?P<shortname>\w+)")
 async def send(event):
     cids = await client_id(event)
     Its_LegendBoy, LEGEND_USER, legend_mention = cids[0], cids[1], cids[2]
@@ -139,7 +139,6 @@ async def kk(event):
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
     cids = await client_id(event)
-    Its_LegendBoy, LEGEND_USER, legend_mention = cids[0], cids[1], cids[2]
     cmd = "ls userbot/plugins"
     thumb = LEGEND_logo1
     process = await asyncio.create_subprocess_shell(
@@ -153,7 +152,7 @@ async def kk(event):
     if len(OUTPUT) > 69:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "cmd_list.text"
-            hell_file = await event.client.send_file(
+            legend_file = await event.client.send_file(
                 event.chat_id,
                 out_file,
                 force_document=True,
@@ -161,7 +160,7 @@ async def kk(event):
                 thumb=thumb,
                 reply_to=reply_to_id,
             )
-            await edit_or_reply(hell_file, f"Output Too Large. This is the file for the list of plugins in bot.\n\n**BY :-** {HELL_USER}")
+            await edit_or_reply(legend_file, f"Output Too Large. This is the file for the list of plugins in bot.\n\n**BY :-** {LEGEND_USER}")
             await event.delete()
 
 
