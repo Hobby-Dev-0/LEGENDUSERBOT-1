@@ -84,7 +84,95 @@ def legend_cmd(
 def legend_handler(**args):
     def decorator(func):
         async def wrapper(event):
-            await func(event)
+            
+            try:
+                await func(errors)
+            except BaseException:
+                date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+                new = {
+                    'error': str(sys.exc_info()[1]),
+                    'date': datetime.datetime.now()
+                }
+
+                text = "**LEGENDBOT CRASH REPORT**\n\n"
+
+                link = "[here](https://t.me/legend_userbot)"
+                text += "If you wanna you can report it"
+                text += f"- just forward this message {link}.\n"
+                text += "Nothing is logged except the fact of error and date\n"
+
+                ftext = "\nDisclaimer:\nThis file uploaded ONLY here,"
+                ftext += "\nwe logged only fact of error and date,"
+                ftext += "\nwe respect your privacy,"
+                ftext += "\nyou may not report this error if you've"
+                ftext += "\nany confidential data here, no one will see your data\n\n"
+
+                ftext += "--------BEGIN LEGENDBOT TRACEBACK LOG--------"
+                ftext += "\nDate: " + date
+                ftext += "\nGroup / chat ID: " + str(errors.chat_id)
+                ftext += "\nSender ID: " + str(errors.sender_id)
+                ftext += "\n\nEvent Trigger:\n"
+                ftext += str(errors.text)
+                ftext += "\n\nTraceback info:\n"
+                ftext += str(traceback.format_exc())
+                ftext += "\n\nError text:\n"
+                ftext += str(sys.exc_info()[1])
+                ftext += "\n\n--------END LEGENDBOT TRACEBACK LOG--------"
+
+                command = "git log --pretty=format:\"%an: %s\" -5"
+
+                ftext += "\n\n\nLast 5 commits:\n"
+
+                process = await asyncio.create_subprocess_shell(
+                    command,
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.PIPE)
+                stdout, stderr = await process.communicate()
+                result = str(stdout.decode().strip()) \
+                    + str(stderr.decode().strip())
+
+                ftext += result
+                with open("error.log", "w+") as output_file:
+                    output_file.write(ftext)
+                    if bot:
+                        await check.bot.send_file(
+                            check.chat_id, "error.log", caption=text
+                        )
+                    elif L2:
+                        try:
+                            await check.L2.send_file(
+                                check.chat_id, "error.log", caption=text
+                            )
+                        except:
+                            pass
+
+                    elif L3:
+                        try:
+                            await check.L3.send_file(
+                                check.chat_id, "error.log", caption=text
+                            )
+                        except:
+                            pass
+                    elif L4:
+                        try:
+                            await check.L4.send_file(
+                                check.chat_id, "error.log", caption=text
+                            )
+                        except:
+                            pass
+                    elif L5:
+                        try:
+                            await check.L5.send_file(
+                                check.chat_id, "error.log", caption=text
+                            )
+                        except:
+                            pass
+
+                    remove("error.log")
+            else:
+                print("Logs Not Working Fine")
+            
+        await func(event)
         bot.add_event_handler(wrapper, events.NewMessage(**args))
         if L2:
             L2.add_event_handler(wrapper, events.NewMessage(**args))
