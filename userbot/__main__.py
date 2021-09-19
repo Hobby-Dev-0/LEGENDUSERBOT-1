@@ -133,13 +133,54 @@ else:
 bot.loop.run_until_complete(module())
 bot.loop.run_until_complete(assistant())
 bot.loop.run_until_complete(addons())
-os.system("pip3 install simple-imshow")
-from simshow import simshow
-simshow('https://telegra.ph/file/75e1eda1498620f0030ea.jpg')  # display from url
-#rom PIL import Image
-#ith Image.open('https://telegra.ph/file/75e1eda1498620f0030ea.jpg') as img:
- #  img.show()
-      
+import sys
+import numpy as np
+from PIL import Image
+
+
+def get_ansi_color_code(r, g, b):
+    if r == g and g == b:
+        if r < 8:
+            return 16
+        if r > 248:
+            return 231
+        return round(((r - 8) / 247) * 24) + 232
+    return 16 + (36 * round(r / 255 * 5)) + (6 * round(g / 255 * 5)) + round(b / 255 * 5)
+
+
+def get_color(r, g, b):
+    return "\x1b[48;5;{}m \x1b[0m".format(int(get_ansi_color_code(r,g,b)))
+
+
+def show_image("legend.jpg"):
+	try:
+		img = Image.open("legend.jpg")
+	except FileNotFoundError:
+		print('Image not found.')
+
+	h = 100
+	w = int((img.width / img.height) * h)
+
+	img = img.resize((w,h), Image.ANTIALIAS)
+	img_arr = np.asarray(img)
+	h,w,c = img_arr.shape
+
+	for x in range(h):
+	    for y in range(w):
+	        pix = img_arr[x][y]
+	        print(get_color(pix[0], pix[1], pix[2]), sep='', end='')
+	    print()
+
+
+async def pic():
+	if len(sys.argv) > 1:
+		img_path = sys.argv[1]
+		show_image("legend.jpg") # display from url
+from PIL import Image
+with Image.open('legend.jpg') as img:
+   img.show()
+
+bot.loop.create_task(pic())
 print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {LEGENDversion}
 TYPE :- " .gpromote @Its_LegendBoy " OR .legend OR .ping CHECK IF I'M ON!
 ╔════❰LEGENDBOT❱═❍⊱❁۪۪
