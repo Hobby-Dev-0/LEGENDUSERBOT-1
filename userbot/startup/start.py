@@ -70,3 +70,25 @@ async def addons():
                     LOGS.warning(str(e))
     else:
         print("Addons Not Loading")
+
+async def legend_is_on():
+    try:
+        if Config.LOGGER_ID != 0:
+            await bot.send_file(
+                Config.LOGGER_ID,
+                LEGEND_PIC,
+                caption=f"#START \n\nDeployed LEGENDBOT Successfully\n\n**LEGENDBOT- {LEGENDversion}**\n\nType `{ll}op` or `{ll}alive` to check! \n\nJoin [LegendBot Channel](t.me/Its_LegendBot) for Updates & [LegendBot Chat](t.me/Legend_Userbot) for any query regarding LegendBot",
+            )
+    except Exception as e:
+        print(str(e))
+
+# Join LegndBot Channel after deploying 🤐😅
+    try:
+        await bot(JoinChannelRequest("@Its_LegendBot"))
+    except BaseException:
+        pass
+
+    try:
+        await bot(JoinChannelRequest("@Legend_Userbot"))
+    except BaseException:
+         pass
