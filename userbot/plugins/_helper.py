@@ -23,7 +23,7 @@ msg = f"""
 """
 botname = Config.BOT_USERNAME
 
-@hell_cmd(pattern="repo$")
+@legend_cmd(pattern="repo$")
 async def repo(event):
     cids = await client_id(event)
     Its_LegendBoy, LEGEND_USER, legend_mention = cids[0], cids[1], cids[2]
