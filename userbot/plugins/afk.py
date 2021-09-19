@@ -7,8 +7,7 @@ from telethon.tl import functions, types
 from userbot.sql.gvar_sql import addgvar, gvarstat, delgvar
 from . import *
 
-hell_grp = "@Legend_userbot"
-legendpic = dB.get("ALIVE_PIC")
+legend_grp = "@Legend_userbot"
 global afk_time
 global last_afk_message
 global afk_start
