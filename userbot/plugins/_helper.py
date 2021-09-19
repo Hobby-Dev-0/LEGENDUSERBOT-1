@@ -6,7 +6,7 @@ from telethon import functions
 from . import *
 from userbot import ALIVE_NAME, CMD_LIST, SUDO_LIST
 from LEGENDBOT.utils import admin_cmd, edit_or_reply, sudo_cmd, eor
-
+  
 perf = "[ †hê Lêɠêɳ̃dẞø† ]"
 
 import requests
@@ -35,7 +35,7 @@ async def repo(event):
     except (noin, dedbot):
         await eor(event, msg)
 
-@legend_cmd(pattern="help$")
+@legend_cmd(pattern="op$")
 async def _(event):
     if event.fwd_from:
         return
