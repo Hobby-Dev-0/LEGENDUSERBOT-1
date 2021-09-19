@@ -127,7 +127,7 @@ else:
     except Exception as e:
         LOGS.error(f"BOT_TOKEN - {str(e)}")
         sys.exit()
-
+print("Loading Modules / Plugins")
 
 bot.loop.run_until_complete(module())
 bot.loop.run_until_complete(assistant())
