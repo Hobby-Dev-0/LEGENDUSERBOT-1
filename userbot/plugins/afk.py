@@ -7,7 +7,8 @@ from telethon.tl import functions, types
 from userbot.sql.gvar_sql import addgvar, gvarstat, delgvar
 from . import *
 
-
+hell_grp = "@Legend_userbot"
+legendpic = dB.get("ALIVE_PIC")
 global afk_time
 global last_afk_message
 global afk_start
@@ -33,7 +34,7 @@ async def set_not_afk(event):
             event.chat_id,
             "__**Back to Virtual World!**__\nNo Longer AFK.\n⏱️ Was afk for: `"
             + total_afk_time
-            + "`", file=hellpic
+            + "`", file=legendpic
         )
         try:
             await unsave_gif(event, userbot)
@@ -53,7 +54,7 @@ async def set_not_afk(event):
                 event.chat_id,
                 "Please set `LOGGER_ID` "
                 + "for the proper functioning of afk."
-                + f" Ask in {hell_grp} to get help!",
+                + f" Ask in {legend_grp} to get help!",
                 reply_to=event.message.id,
                 link_preview=False,
                 silent=True,
@@ -85,7 +86,7 @@ async def on_afk(event):
                 f"**I'm currently AFK!** \n\n**⏰ AFK Since :**  `{total_afk_time}`\n"
                 + f"\n**💬 Reason :** {reason}"
                 )
-        msg = await event.reply(message_to_reply, file=hellpic)
+        msg = await event.reply(message_to_reply, file=legendpic)
         try:
             await unsave_gif(event, msg)
         except:
@@ -106,7 +107,7 @@ async def _(event):
     global afk_start
     global afk_end
     global reason
-    global hellpic
+    global legendpic
     afk_time = None
     last_afk_message = {}
     afk_end = {}
@@ -114,7 +115,7 @@ async def _(event):
     afk_start = start_1.replace(microsecond=0)
     owo = event.text[5:]
     reason = owo
-    hellpic = await event.client.download_media(krakenop)
+    legendpic = await event.client.download_media(krakenop)
     if gvarstat("AFK") != "YES":
         last_seen_status = await event.client(
             functions.account.GetPrivacyRequest(types.InputPrivacyKeyStatusTimestamp())
@@ -124,7 +125,7 @@ async def _(event):
         if owo == "":
             addgvar("AFK", "YES")
             x = await event.client.send_message(
-                event.chat_id, f"**I'm going afk🚶**", file=hellpic)
+                event.chat_id, f"**I'm going afk🚶**", file=legendpic)
             try:
                 await unsave_gif(event, x)
             except:
@@ -134,7 +135,7 @@ async def _(event):
             try:
                 xy = await event.client.send_message(
                     Config.LOGGER_ID,
-                    f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=hellpic
+                    f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=legendpic
                     )
                 try:
                     await unsave_gif(event, xy)
@@ -145,7 +146,7 @@ async def _(event):
         else:
             addgvar("AFK", "YES")
             x = await event.client.send_message(
-                event.chat_id, f"**I'm going afk🚶**\n\n**Because :** `{reason}`", file=hellpic)
+                event.chat_id, f"**I'm going afk🚶**\n\n**Because :** `{reason}`", file=legendpic)
             try:
                 await unsave_gif(event, x)
             except:
@@ -155,7 +156,7 @@ async def _(event):
             try:
                 xy = await event.client.send_message(
                     Config.LOGGER_ID,
-                    f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=hellpic
+                    f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=legendpic
                     )
                 try:
                     await unsave_gif(event, xy)
@@ -182,7 +183,7 @@ if L2:
                 event.chat_id,
                 "__**Back to Virtual World!**__\nNo Longer AFK.\n⏱️ Was afk for: `"
                 + total_afk_time
-                + "`", file=hellpic
+                + "`", file=legendpic
             )
             try:
                 await unsave_gif(event, userbot)
@@ -202,7 +203,7 @@ if L2:
                     event.chat_id,
                     "Please set `LOGGER_ID` "
                     + "for the proper functioning of afk."
-                    + f" Ask in {hell_grp} to get help!",
+                    + f" Ask in {legend_grp} to get help!",
                     reply_to=event.message.id,
                     link_preview=False,
                     silent=True,
@@ -234,7 +235,7 @@ if L2:
                     f"**I'm currently AFK!** \n\n**⏰ AFK Since :**  `{total_afk_time}`\n"
                     + f"\n**💬 Reason :** {reason}"
                     )
-            msg = await event.reply(message_to_reply, file=hellpic)
+            msg = await event.reply(message_to_reply, file=legendpic)
             try:
                 await unsave_gif(event, msg)
             except:
@@ -255,7 +256,7 @@ if L2:
         global afk_start
         global afk_end
         global reason
-        global hellpic
+        global legendpic
         afk_time = None
         last_afk_message = {}
         afk_end = {}
@@ -263,7 +264,7 @@ if L2:
         afk_start = start_1.replace(microsecond=0)
         owo = event.text[5:]
         reason = owo
-        hellpic = await event.client.download_media(krakenop)
+        legendpic = await event.client.download_media(krakenop)
         if not gvarstat("AFK2"):
             last_seen_status = await event.client(
                 functions.account.GetPrivacyRequest(types.InputPrivacyKeyStatusTimestamp())
@@ -273,7 +274,7 @@ if L2:
             if owo == "":
                 addgvar("AFK2", "YES")
                 x = await event.client.send_message(
-                    event.chat_id, f"**I'm going afk🚶**", file=hellpic)
+                    event.chat_id, f"**I'm going afk🚶**", file=legendpic)
                 try:
                     await unsave_gif(event, x)
                 except:
@@ -283,7 +284,7 @@ if L2:
                 try:
                     xy = await event.client.send_message(
                         Config.LOGGER_ID,
-                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=hellpic
+                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=legendpic
                         )
                     try:
                         await unsave_gif(event, xy)
@@ -294,7 +295,7 @@ if L2:
             else:
                 addgvar("AFK2", "YES")
                 x = await event.client.send_message(
-                    event.chat_id, f"**I'm going afk🚶**\n\n**Because :** `{reason}`", file=hellpic)
+                    event.chat_id, f"**I'm going afk🚶**\n\n**Because :** `{reason}`", file=legendpic)
                 try:
                     await unsave_gif(event, x)
                 except:
@@ -304,7 +305,7 @@ if L2:
                 try:
                     xy = await event.client.send_message(
                         Config.LOGGER_ID,
-                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=hellpic
+                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=legendpic
                         )
                     try:
                         await unsave_gif(event, xy)
@@ -331,7 +332,7 @@ if L3:
                 event.chat_id,
                 "__**Back to Virtual World!**__\nNo Longer AFK.\n⏱️ Was afk for: `"
                 + total_afk_time
-                + "`", file=hellpic
+                + "`", file=legendpic
             )
             try:
                 await unsave_gif(event, userbot)
@@ -351,7 +352,7 @@ if L3:
                     event.chat_id,
                     "Please set `LOGGER_ID` "
                     + "for the proper functioning of afk."
-                    + f" Ask in {hell_grp} to get help!",
+                    + f" Ask in {legend_grp} to get help!",
                     reply_to=event.message.id,
                     link_preview=False,
                     silent=True,
@@ -383,7 +384,7 @@ if L3:
                     f"**I'm currently AFK!** \n\n**⏰ AFK Since :**  `{total_afk_time}`\n"
                     + f"\n**💬 Reason :** {reason}"
                     )
-            msg = await event.reply(message_to_reply, file=hellpic)
+            msg = await event.reply(message_to_reply, file=legendpic)
             try:
                 await unsave_gif(event, msg)
             except:
@@ -404,7 +405,7 @@ if L3:
         global afk_start
         global afk_end
         global reason
-        global hellpic
+        global legendpic
         afk_time = None
         last_afk_message = {}
         afk_end = {}
@@ -412,7 +413,7 @@ if L3:
         afk_start = start_1.replace(microsecond=0)
         owo = event.text[5:]
         reason = owo
-        hellpic = await event.client.download_media(krakenop)
+        legendpic = await event.client.download_media(krakenop)
         if not gvarstat("AFK3"):
             last_seen_status = await event.client(
                 functions.account.GetPrivacyRequest(types.InputPrivacyKeyStatusTimestamp())
@@ -422,7 +423,7 @@ if L3:
             if owo == "":
                 addgvar("AFK3", "YES")
                 x = await event.client.send_message(
-                    event.chat_id, f"**I'm going afk🚶**", file=hellpic)
+                    event.chat_id, f"**I'm going afk🚶**", file=legendpic)
                 try:
                     await unsave_gif(event, x)
                 except:
@@ -432,7 +433,7 @@ if L3:
                 try:
                     xy = await event.client.send_message(
                         Config.LOGGER_ID,
-                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=hellpic
+                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=legendpic
                         )
                     try:
                         await unsave_gif(event, xy)
@@ -443,7 +444,7 @@ if L3:
             else:
                 addgvar("AFK3", "YES")
                 x = await event.client.send_message(
-                    event.chat_id, f"**I'm going afk🚶**\n\n**Because :** `{reason}`", file=hellpic)
+                    event.chat_id, f"**I'm going afk🚶**\n\n**Because :** `{reason}`", file=legendpic)
                 try:
                     await unsave_gif(event, x)
                 except:
@@ -453,7 +454,7 @@ if L3:
                 try:
                     xy = await event.client.send_message(
                         Config.LOGGER_ID,
-                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=hellpic
+                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=legendpic
                         )
                     try:
                         await unsave_gif(event, xy)
@@ -480,7 +481,7 @@ if L4:
                 event.chat_id,
                 "__**Back to Virtual World!**__\nNo Longer AFK.\n⏱️ Was afk for: `"
                 + total_afk_time
-                + "`", file=hellpic
+                + "`", file=legendpic
             )
             try:
                 await unsave_gif(event, userbot)
@@ -500,7 +501,7 @@ if L4:
                     event.chat_id,
                     "Please set `LOGGER_ID` "
                     + "for the proper functioning of afk."
-                    + f" Ask in {hell_grp} to get help!",
+                    + f" Ask in {legend_grp} to get help!",
                     reply_to=event.message.id,
                     link_preview=False,
                     silent=True,
@@ -532,7 +533,7 @@ if L4:
                     f"**I'm currently AFK!** \n\n**⏰ AFK Since :**  `{total_afk_time}`\n"
                     + f"\n**💬 Reason :** {reason}"
                     )
-            msg = await event.reply(message_to_reply, file=hellpic)
+            msg = await event.reply(message_to_reply, file=legendpic)
             try:
                 await unsave_gif(event, msg)
             except:
@@ -553,7 +554,7 @@ if L4:
         global afk_start
         global afk_end
         global reason
-        global hellpic
+        global legendpic
         afk_time = None
         last_afk_message = {}
         afk_end = {}
@@ -561,7 +562,7 @@ if L4:
         afk_start = start_1.replace(microsecond=0)
         owo = event.text[5:]
         reason = owo
-        hellpic = await event.client.download_media(krakenop)
+        legendpic = await event.client.download_media(krakenop)
         if not gvarstat("AFK4"):
             last_seen_status = await event.client(
                 functions.account.GetPrivacyRequest(types.InputPrivacyKeyStatusTimestamp())
@@ -571,7 +572,7 @@ if L4:
             if owo == "":
                 addgvar("AFK4", "YES")
                 x = await event.client.send_message(
-                    event.chat_id, f"**I'm going afk🚶**", file=hellpic)
+                    event.chat_id, f"**I'm going afk🚶**", file=legendpic)
                 try:
                     await unsave_gif(event, x)
                 except:
@@ -581,7 +582,7 @@ if L4:
                 try:
                     xy = await event.client.send_message(
                         Config.LOGGER_ID,
-                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=hellpic
+                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=legendpic
                         )
                     try:
                         await unsave_gif(event, xy)
@@ -592,7 +593,7 @@ if L4:
             else:
                 addgvar("AFK4", "YES")
                 x = await event.client.send_message(
-                    event.chat_id, f"**I'm going afk🚶**\n\n**Because :** `{reason}`", file=hellpic)
+                    event.chat_id, f"**I'm going afk🚶**\n\n**Because :** `{reason}`", file=legendpic)
                 try:
                     await unsave_gif(event, x)
                 except:
@@ -602,7 +603,7 @@ if L4:
                 try:
                     xy = await event.client.send_message(
                         Config.LOGGER_ID,
-                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=hellpic
+                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=legendpic
                         )
                     try:
                         await unsave_gif(event, xy)
@@ -629,7 +630,7 @@ if L5:
                 event.chat_id,
                 "__**Back to Virtual World!**__\nNo Longer AFK.\n⏱️ Was afk for: `"
                 + total_afk_time
-                + "`", file=hellpic
+                + "`", file=legendpic
             )
             try:
                 await unsave_gif(event, userbot)
@@ -649,7 +650,7 @@ if L5:
                     event.chat_id,
                     "Please set `LOGGER_ID` "
                     + "for the proper functioning of afk."
-                    + f" Ask in {hell_grp} to get help!",
+                    + f" Ask in {legend_grp} to get help!",
                     reply_to=event.message.id,
                     link_preview=False,
                     silent=True,
@@ -681,7 +682,7 @@ if L5:
                     f"**I'm currently AFK!** \n\n**⏰ AFK Since :**  `{total_afk_time}`\n"
                     + f"\n**💬 Reason :** {reason}"
                     )
-            msg = await event.reply(message_to_reply, file=hellpic)
+            msg = await event.reply(message_to_reply, file=legendpic)
             try:
                 await unsave_gif(event, msg)
             except:
@@ -702,7 +703,7 @@ if L5:
         global afk_start
         global afk_end
         global reason
-        global hellpic
+        global legendpic
         afk_time = None
         last_afk_message = {}
         afk_end = {}
@@ -710,7 +711,7 @@ if L5:
         afk_start = start_1.replace(microsecond=0)
         owo = event.text[5:]
         reason = owo
-        hellpic = await event.client.download_media(krakenop)
+        legendpic = await event.client.download_media(krakenop)
         if not gvarstat("AFK5"):
             last_seen_status = await event.client(
                 functions.account.GetPrivacyRequest(types.InputPrivacyKeyStatusTimestamp())
@@ -720,7 +721,7 @@ if L5:
             if owo == "":
                 addgvar("AFK5", "YES")
                 x = await event.client.send_message(
-                    event.chat_id, f"**I'm going afk🚶**", file=hellpic)
+                    event.chat_id, f"**I'm going afk🚶**", file=legendpic)
                 try:
                     await unsave_gif(event, x)
                 except:
@@ -730,7 +731,7 @@ if L5:
                 try:
                     xy = await event.client.send_message(
                         Config.LOGGER_ID,
-                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=hellpic
+                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=legendpic
                         )
                     try:
                         await unsave_gif(event, xy)
@@ -741,7 +742,7 @@ if L5:
             else:
                 addgvar("AFK5", "YES")
                 x = await event.client.send_message(
-                    event.chat_id, f"**I'm going afk🚶**\n\n**Because :** `{reason}`", file=hellpic)
+                    event.chat_id, f"**I'm going afk🚶**\n\n**Because :** `{reason}`", file=legendpic)
                 try:
                     await unsave_gif(event, x)
                 except:
@@ -751,7 +752,7 @@ if L5:
                 try:
                     xy = await event.client.send_message(
                         Config.LOGGER_ID,
-                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=hellpic
+                        f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=legendpic
                         )
                     try:
                         await unsave_gif(event, xy)
