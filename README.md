@@ -103,6 +103,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   <summary> <h4>• Credits 🏅 •</h4> </summary>
 
 • [LEGEND](https://github.com/LEGEND-OS):OWNER
+• [FORBIDDEN-LINKERS](https://github.com/ForbiddenLinkers):DEV
  
 </details>
 
