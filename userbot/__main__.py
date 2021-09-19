@@ -10,6 +10,7 @@ from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRe
 from userbot.utils import load_module, start_assistant, load_addons
 from userbot import LOAD_PLUG, LOGS, LEGENDversion
 from pathlib import Path
+from .startup.start import *
 import asyncio
 import telethon.utils
 os.system("pip install -U telethon")
@@ -18,9 +19,7 @@ ll2= Config.SUDO_COMMAND_HAND_LER
 LEGEND_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/75e1eda1498620f0030ea.jpg"
 ll = Config.COMMAND_HAND_LER
 
-
-LOAD_USERBOT = os.environ.get("LOAD_USERBOT", True)
-LOAD_ASSISTANT = os.environ.get("LOAD_ASSISTANT", True)    
+   
 
 import glob
 import os
@@ -130,59 +129,9 @@ else:
         LOGS.error(f"BOT_TOKEN - {str(e)}")
         sys.exit()
 
-import glob
-path = 'userbot/plugins/*.py'
-files = glob.glob(path)
-for name in files:
-    with open(name) as f:
-        path1 = Path(f.name)
-        shortname = path1.stem
-        try:
-            load_module(shortname.replace(".py", ""))
-            if not shortname.startswith("__") or shortname.startswith("_"):
-                LOGS.info(f"LEGEND-BOT 3.0 - Official -  Installed - {shortname}")
-        except Exception as e:
-            LOGS.warning(f"LEGEND-BOT 3.0 - Official - ERROR - {shortname}")
-            LOGS.warning(str(e))
 
-if LOAD_ASSISTANT == True:
-    path = "userbot/plugins/assistant/*.py"
-    files = glob.glob(path)
-    for name in files:
-        with open(name) as f:
-            path1 = Path(f.name)
-            shortname = path1.stem
-            try:
-                start_assistant(shortname.replace(".py", ""))
-            except Exception as er:
-                print(er)
-
-addon = dB.get("ADDONS") or False                
-async def addons():
-    if addon == "True":
-        extra_repo = "https://github.com/LEGENDS-OP/LegendBot-Addons"
-        try:
-            os.system(f"git clone {extra_repo}")  
-        except BaseException:
-            pass
-        LOGS.info("Loading Addons")
-        path = "LegendBot-Addons/*.py"
-        files = glob.glob(path)
-        for name in files:
-            with open(name) as ex:
-                path2 = Path(ex.name)
-                shortname = path2.stem
-                try:
-                    load_addons(shortname.replace(".py", ""))
-                    if not shortname.startswith("__") or shortname.startswith("_"):
-                        LOGS.info(f"LEGEND-BOT 3.0 - Addons -  Installed - {shortname}")
-                except Exception as e:
-                    LOGS.warning(f"LEGEND-BOT 3.0 - Addons - ERROR - {shortname}")
-                    LOGS.warning(str(e))
-    else:
-        print("Addons Not Loading")
-
-
+bot.loop.create_task(module())
+bot.loop.create_task(assistant())
 bot.loop.create_task(addons())
     
 print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {LEGENDversion}
@@ -196,27 +145,6 @@ TYPE :- " .gpromote @Its_LegendBoy " OR .legend OR .ping CHECK IF I'M ON!
 ║╰━━━━━━━━━━━━━━━➣
 ╚══════════════════❍⊱""")
 
-async def legend_is_on():
-    try:
-        if Config.LOGGER_ID != 0:
-            await bot.send_file(
-                Config.LOGGER_ID,
-                LEGEND_PIC,
-                caption=f"#START \n\nDeployed LEGENDBOT Successfully\n\n**LEGENDBOT- {LEGENDversion}**\n\nType `{ll}op` or `{ll}alive` to check! \n\nJoin [LegendBot Channel](t.me/Its_LegendBot) for Updates & [LegendBot Chat](t.me/Legend_Userbot) for any query regarding LegendBot",
-            )
-    except Exception as e:
-        print(str(e))
-
-# Join LegndBot Channel after deploying 🤐😅
-    try:
-        await bot(JoinChannelRequest("@Its_LegendBot"))
-    except BaseException:
-        pass
-
-    try:
-        await bot(JoinChannelRequest("@Legend_Userbot"))
-    except BaseException:
-         pass
 
 
 bot.loop.create_task(legend_is_on())
