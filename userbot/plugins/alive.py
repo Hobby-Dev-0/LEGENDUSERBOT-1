@@ -60,6 +60,7 @@ uptime = get_readable_time((time.time() - StartTime))
 
 
 @legend_cmd(pattern="legend$")
+@errors_handler()
 async def amireallyalive(alive):
     if alive.fwd_from:
         return
@@ -112,6 +113,7 @@ msg = f"""
 botname = Config.BOT_USERNAME
 
 @legend_cmd(pattern="alive$")
+@errors_handler()
 async def legend_a(event):
     try:
         legend = await bot.inline_query(botname, "alive")
