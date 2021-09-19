@@ -1,11 +1,6 @@
 import inspect
 import re
-import asyncio
 import os
-import datetime
-from time import gmtime, strftime
-import traceback
-from os import remove
 from pathlib import Path
 from telethon import events
 CMD_LIST = {}
@@ -63,100 +58,8 @@ def legend_cmd(
             except BaseException:
                 CMD_LIST.update({file_test: [cmd1]})
 
+
     def decorator(func):
-        async def wrapper(errors):
-            try:
-                await func(errors)
-            except BaseException:
-                date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
-                new = {
-                    'error': str(sys.exc_info()[1]),
-                    'date': datetime.datetime.now()
-                }
-
-                text = "**LEGENDBOT CRASH REPORT**\n\n"
-
-                link = "[here](https://t.me/Legend_userbot)"
-                text += "If you wanna you can report it"
-                text += f"- just forward this message {link}.\n"
-                text += "Nothing is logged except the fact of error and date\n"
-
-                ftext = "\nDisclaimer:\nThis file uploaded ONLY here,"
-                ftext += "\nwe logged only fact of error and date,"
-                ftext += "\nwe respect your privacy,"
-                ftext += "\nyou may not report this error if you've"
-                ftext += "\nany confidential data here, no one will see your data\n\n"
-
-                ftext += "--------BEGIN LEGENDBOT TRACEBACK LOG--------"
-                ftext += "\nDate: " + date
-                ftext += "\nGroup ID: " + str(errors.chat_id)
-                ftext += "\nSender ID: " + str(errors.sender_id)
-                ftext += "\n\nEvent Trigger:\n"
-                ftext += str(errors.text)
-                ftext += "\n\nTraceback info:\n"
-                ftext += str(traceback.format_exc())
-                ftext += "\n\nError text:\n"
-                ftext += str(sys.exc_info()[1])
-                ftext += "\n\n--------END LEGENDBOT TRACEBACK LOG--------"
-
-                command = "git log --pretty=format:\"%an: %s\" -5"
-
-                ftext += "\n\n\nLast 5 commits:\n"
-
-                process = await asyncio.create_subprocess_shell(
-                    command,
-                    stdout=asyncio.subprocess.PIPE,
-                    stderr=asyncio.subprocess.PIPE)
-                stdout, stderr = await process.communicate()
-                result = str(stdout.decode().strip()) \
-                    + str(stderr.decode().strip())
-
-                ftext += result
-                with open("error.log", "w+") as output_file:
-                    output_file.write(ftext)
-                    if bot:
-                        await check.bot.send_file(
-                            check.chat_id, "error.log", caption=text
-                        )
-                    elif L2 is not None:
-                        try:
-                            await check.L2.send_file(
-                                check.chat_id, "error.log", caption=text
-                            )
-                        except Exception as e:
-                            print(e)
-                            pass
-                        
-                    elif L3 is not None:
-                        try:
-                            await check.L3.send_file(
-                                check.chat_id, "error.log", caption=text
-                            )
-                        except Exception as e:
-                            print(e)
-                            pass
-                    elif L4 is not None:
-                        try:
-                            await check.L4.send_file(
-                                check.chat_id, "error.log", caption=text
-                            )
-                        except Exception as e:
-                            print(e)
-                            pass
-                    elif L5 is not None:
-                        try:
-                            await check.L5.send_file(
-                                check.chat_id, "error.log", caption=text
-                            )
-                        except Exception as e:
-                            print(e)
-                            pass
-
-                    remove("error.log")
-            else:
-                pass
-
-        return wrapper
         if not disable_edited:
             bot.add_event_handler(func, events.MessageEdited(**args, outgoing=True, pattern=legend_reg))
         bot.add_event_handler(func, events.NewMessage(**args, outgoing=True, pattern=legend_reg))
@@ -194,3 +97,57 @@ def legend_handler(**args):
         return wrapper
 
     return decorater
+
+
+def errors_handler(func):
+    async def wrapper(errors):
+        try:
+            await func(errors)
+        except BaseException:
+
+            date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+            new = {
+                'error': str(sys.exc_info()[1]),
+                'date': datetime.datetime.now()
+            }
+
+            text = "**LEGENDBOT CRASH REPORT**\n\n"
+
+            link = "[here](https://t.me/legend_userbot)"
+            text += "If you wanna you can report it"
+            text += f"- just forward this message {link}.\n"
+            text += "Nothing is logged except the fact of error and date\n"
+
+            ftext = "\nDisclaimer:\nThis file uploaded ONLY here,"
+            ftext += "\nwe logged only fact of error and date,"
+            ftext += "\nwe respect your privacy,"
+            ftext += "\nyou may not report this error if you've"
+            ftext += "\nany confidential data here, no one will see your data\n\n"
+
+            ftext += "--------BEGIN LEGENDBOT TRACEBACK LOG--------"
+            ftext += "\nDate: " + date
+            ftext += "\nGroup / chat ID: " + str(errors.chat_id)
+            ftext += "\nSender ID: " + str(errors.sender_id)
+            ftext += "\n\nEvent Trigger:\n"
+            ftext += str(errors.text)
+            ftext += "\n\nTraceback info:\n"
+            ftext += str(traceback.format_exc())
+            ftext += "\n\nError text:\n"
+            ftext += str(sys.exc_info()[1])
+            ftext += "\n\n--------END LEGENDBOT TRACEBACK LOG--------"
+
+            command = "git log --pretty=format:\"%an: %s\" -5"
+
+            ftext += "\n\n\nLast 5 commits:\n"
+
+            process = await asyncio.create_subprocess_shell(
+                command,
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE)
+            stdout, stderr = await process.communicate()
+            result = str(stdout.decode().strip()) \
+                + str(stderr.decode().strip())
+
+            ftext += result
+
+    return wrapper
