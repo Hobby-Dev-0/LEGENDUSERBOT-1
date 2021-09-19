@@ -5,9 +5,10 @@ from datetime import datetime
 from pathlib import Path
 from telethon import events, functions, types
 from telethon.tl.types import InputMessagesFilterDocument
-from LEGENDBOT.utils import *
+from userbot.utils import *
 from userbot import *
 from . import *
+from userbot.Config.Config import Config
 DELETE_TIMEOUT = 5
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "『Lêɠêɳ̃dẞø†』"
 legend = bot.uid
@@ -101,7 +102,7 @@ async def uninstall(event):
     except OSError as e:
         await eod(legend, f"**Error !!** \n\n`{dir_path}` : __{e.strerror}__")
 
-@hell_cmd(pattern=r"upload (?P<shortname>\w+)$")
+@admin_cmd(pattern=r"upload (?P<shortname>\w+)$")
 async def upload(event):
     shortname = event.pattern_match["shortname"]
     try:
