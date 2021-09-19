@@ -80,6 +80,7 @@ def load_module(shortname):
         mod.L3 = L3
         mod.L4 = L4
         mod.L5 = L5
+        mod.errors_handler = errors_handler
         mod.Legend = Legend
         mod.LegendBot = LegendBot
         mod.tbot = LegendBot
@@ -155,6 +156,7 @@ def load_addons(shortname):
         sys.modules["uniborg.util"] = userbot.utils
         mod.Config = Config
         mod.borg = bot
+        mod.errors_handler = errors_handler
         mod.ultroid_cmd = legend_cmd
         mod.LEGENDBOT = bot
         mod.legend_cmd = legend_cmd
