@@ -112,6 +112,7 @@ msg = f"""
 botname = Config.BOT_USERNAME
 
 @legend_cmd(pattern="alive$")
+@errors_handler(func)
 async def legend_a(event):
     try:
         legend = await bot.inline_query(botname, "alive")
