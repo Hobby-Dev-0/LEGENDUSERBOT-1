@@ -44,7 +44,7 @@ async def clients_list(Config, Legend, L2, L3, L4, L5):
 async def client_id(event):
     client = await event.client.get_me()
     uid = telethon.utils.get_peer_id(client)
-    LEGEND = uid
+    Its_LegendBoy = uid
     LEGEND_USER = client.first_name
-    LEGEND_mention = f"[{LEGEND_USER}](tg://user?id={LEGEND})"
-    return LEGEND, LEGEND_USER, LEGEND_mention
+    legend_mention = f"[{LEGEND_USER}](tg://user?id={Its_LegendBoy})"
+    return Its_LegendBoy, LEGEND_USER, LEGEND_mention
