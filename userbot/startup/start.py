@@ -1,5 +1,19 @@
 from .. import *
 from ..utils import *
+from userbot import bot, dB
+from sys import argv
+import sys
+from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
+import os
+from telethon import TelegramClient
+from var import Var
+from userbot.config.Config import Config
+from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
+from userbot.utils import load_module, start_assistant, load_addons
+from userbot import LOAD_PLUG, LOGS, LEGENDversion
+from pathlib import Path
+import asyncio
+import telethon.utils
 async def module():
   import glob
   path = 'userbot/plugins/*.py'
