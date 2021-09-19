@@ -123,7 +123,8 @@ def legend_cmd(
                             await check.L2.send_file(
                                 check.chat_id, "error.log", caption=text
                             )
-                        except:
+                        except Exception as e:
+                            print(e)
                             pass
                         
                     elif L3 is not None:
@@ -131,21 +132,24 @@ def legend_cmd(
                             await check.L3.send_file(
                                 check.chat_id, "error.log", caption=text
                             )
-                        except:
+                        except Exception as e:
+                            print(e)
                             pass
                     elif L4 is not None:
                         try:
                             await check.L4.send_file(
                                 check.chat_id, "error.log", caption=text
                             )
-                        except:
+                        except Exception as e:
+                            print(e)
                             pass
                     elif L5 is not None:
                         try:
                             await check.L5.send_file(
                                 check.chat_id, "error.log", caption=text
                             )
-                        except:
+                        except Exception as e:
+                            print(e)
                             pass
 
                     remove("error.log")
