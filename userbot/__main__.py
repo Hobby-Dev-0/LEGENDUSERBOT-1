@@ -133,12 +133,6 @@ bot.loop.run_until_complete(module())
 bot.loop.run_until_complete(assistant())
 bot.loop.run_until_complete(addons())
 
-
-from PIL import Image
-with Image.open('legend.jpg') as img:
-   img.show()
-
-bot.loop.create_task(pic())
 print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {LEGENDversion}
 TYPE :- " .gpromote @Its_LegendBoy " OR .legend OR .ping CHECK IF I'M ON!
 ╔════❰LEGENDBOT❱═❍⊱❁۪۪
@@ -148,8 +142,6 @@ TYPE :- " .gpromote @Its_LegendBoy " OR .legend OR .ping CHECK IF I'M ON!
 ║┣⪼ ✨ 『🔱🇱 🇪 🇬 🇪 🇳 🇩 🔱』𝐔𝐬𝐞𝐫𝐛𝐨𝐭✨
 ║╰━━━━━━━━━━━━━━━➣
 ╚══════════════════❍⊱""")
-
-
 
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
