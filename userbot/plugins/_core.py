@@ -50,8 +50,8 @@ async def send(event):
     message_id = event.message.id
     thumb = legend_logo1
     input_str = event.pattern_match.group(1)
-    omk = f"**• Plugin name ≈** `{input_str}`\n**• Uploaded by ≈** {hell_mention}\n\n⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ ɦɛʟʟɮօt]({chnl_link})** ⚡"
-    the_plugin_file = "./hellbot/plugins/{}.py".format(input_str)
+    omk = f"**• Plugin name ≈** `{input_str}`\n**• Uploaded by ≈** {legend_mention}\n\n⚡ **[Lêɠêɳ̃dẞø†]({chnl_link})** ⚡"
+    the_plugin_file = "./userbot/plugins/{}.py".format(input_str)
     if os.path.exists(the_plugin_file):
         lauda = await event.client.send_file(
             event.chat_id,
@@ -67,18 +67,18 @@ async def send(event):
         await eod(event, "File not found..... Kek")
 
 
-@hell_cmd(pattern="install ?(.*)")
+@legend_cmd(pattern="install ?(.*)")
 async def install(event):
     cids = await client_id(event)
-    ForGo10God, HELL_USER, hell_mention = cids[0], cids[1], cids[2]
+    Its_LegendBoy, LEGEND_USER, legend_mention = cids[0], cids[1], cids[2]
     b = 1
     owo = event.text[9:]
-    hell = await eor(event, "__Installing.__")
+    legend = await eor(event, "__Installing.__")
     if event.reply_to_msg_id:
         try:
             downloaded_file_name = await event.client.download_media(  # pylint:disable=E0602
                 await event.get_reply_message(),
-                "./hellbot/plugins/"  # pylint:disable=E0602
+                "./userbot/plugins/"  # pylint:disable=E0602
             )
             if owo != "-f":
                 op = open(downloaded_file_name, "r")
@@ -106,8 +106,8 @@ async def install(event):
                         else:
                             a = "__Installing...__"
                             b = 1
-                        await hell.edit(a)
-                    return await hell.edit(f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {hell_mention}\n\n{string}\n\n        ⚡ **[ʟegend bot]({chnl_link})** ⚡", link_preview=False)
+                        await legend.edit(a)
+                    return await hell.edit(f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {legend_mention}\n\n{string}\n\n        ⚡ **[ʟegend bot]({chnl_link})** ⚡", link_preview=False)
                 return await hell.edit(f"Installed module `{os.path.basename(downloaded_file_name)}`")
             else:
                 os.remove(downloaded_file_name)
