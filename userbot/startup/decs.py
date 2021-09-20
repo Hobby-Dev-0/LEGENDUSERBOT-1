@@ -5,6 +5,7 @@ from pathlib import Path
 from telethon import events
 CMD_LIST = {}
 LOAD_PLUG = {}
+from .. import dB
 from .session import L2, L3, L4, L5, Legend
 bot = Legend
 
