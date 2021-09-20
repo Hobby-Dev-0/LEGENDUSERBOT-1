@@ -1,7 +1,6 @@
 import os
-
 from distutils.util import strtobool as sb
-COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", r".")
+
 BOTLOG_CHATID = "-100"
     # Bleep Blop, this is a bot ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
