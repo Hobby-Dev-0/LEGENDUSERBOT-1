@@ -378,8 +378,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         for x in CMD_LIST.values():
             for y in x:
                 apn.append(y)
-        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
-        if event.query.user_id in auth or sudos:
+        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
                 f"**𓆩♥️{legend_mention}♥️𓆪**\n\n**🕹️𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍⭆ `{len(CMD_HELP)}`**\n**⌨️𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`**\n**🎒𝙿𝚊𝚐𝚎⭆ {page + 1}/{veriler[0]}**",
                 buttons=veriler[1],
