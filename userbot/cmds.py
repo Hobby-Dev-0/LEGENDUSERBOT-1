@@ -1,7 +1,7 @@
 import os
 from userbot import CMD_HELP, CMD_HELP_BOT
 
-HANDLER = os.environ.get("COMMAND_HAND_LER", r".")
+HANDLER = dB.get("COMMAND_HAND_LER")
       
 # Made this class for help menu
 class CMD_HELP:
