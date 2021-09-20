@@ -18,7 +18,7 @@ import asyncio
 import telethon.utils
 import glob
 LOAD_USERBOT = dB.get("LOAD_USERBOT") or False
-LOAD_ASSISTANT = dB.get("LOAD_ASSISTANT") or False 
+LOAD_ASSISTANT = dB.get("LOAD_ASSISTANT")
 
 async def module():
   import glob
@@ -37,7 +37,6 @@ async def module():
         LOGS.warning(str(e))
 
 async def assistant():
-  if LOAD_ASSISTANT == True:
     path = "userbot/plugins/Assistant/*.py"
     files = glob.glob(path)
     for name in files:
