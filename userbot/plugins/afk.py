@@ -45,7 +45,7 @@ async def set_not_afk(event):
             pass
         try:
             await event.client.send_message(
-                Config.LOGGER_ID,
+                dB.get('LOGGER_ID'),
                 f"#AFKFALSE \n\n**AFK mode** = `False`\n**AFK Timer :** `{total_afk_time}`"
             )
         except Exception as e:
@@ -133,7 +133,7 @@ async def _(event):
             await event.delete()
             try:
                 xy = await event.client.send_message(
-                    Config.LOGGER_ID,
+                    dB.get('LOGGER_ID'),
                     f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=legendpic
                     )
                 try:
@@ -154,7 +154,7 @@ async def _(event):
             await event.delete()
             try:
                 xy = await event.client.send_message(
-                    Config.LOGGER_ID,
+                    dB.get('LOGGER_ID'),
                     f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=legendpic
                     )
                 try:
@@ -194,7 +194,7 @@ if L2:
                 pass
             try:
                 await event.client.send_message(
-                    Config.LOGGER_ID,
+                    dB.get('LOGGER_ID'),
                     f"#AFKFALSE \n\n**AFK mode** = `False`\n**AFK Timer :** `{total_afk_time}`"
                 )
             except Exception as e:
@@ -282,7 +282,7 @@ if L2:
                 await event.delete()
                 try:
                     xy = await event.client.send_message(
-                        Config.LOGGER_ID,
+                        dB.get('LOGGER_ID'),
                         f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=legendpic
                         )
                     try:
@@ -303,7 +303,7 @@ if L2:
                 await event.delete()
                 try:
                     xy = await event.client.send_message(
-                        Config.LOGGER_ID,
+                        dB.get('LOGGER_ID'),
                         f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=legendpic
                         )
                     try:
@@ -343,7 +343,7 @@ if L3:
                 pass
             try:
                 await event.client.send_message(
-                    Config.LOGGER_ID,
+                    dB.get('LOGGER_ID'),
                     f"#AFKFALSE \n\n**AFK mode** = `False`\n**AFK Timer :** `{total_afk_time}`"
                 )
             except Exception as e:
@@ -431,7 +431,7 @@ if L3:
                 await event.delete()
                 try:
                     xy = await event.client.send_message(
-                        Config.LOGGER_ID,
+                        dB.get('LOGGER_ID'),
                         f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=legendpic
                         )
                     try:
@@ -452,7 +452,7 @@ if L3:
                 await event.delete()
                 try:
                     xy = await event.client.send_message(
-                        Config.LOGGER_ID,
+                        dB.get('LOGGER_ID'),
                         f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=legendpic
                         )
                     try:
@@ -492,7 +492,7 @@ if L4:
                 pass
             try:
                 await event.client.send_message(
-                    Config.LOGGER_ID,
+                    dB.get('LOGGER_ID'),
                     f"#AFKFALSE \n\n**AFK mode** = `False`\n**AFK Timer :** `{total_afk_time}`"
                 )
             except Exception as e:
@@ -580,7 +580,7 @@ if L4:
                 await event.delete()
                 try:
                     xy = await event.client.send_message(
-                        Config.LOGGER_ID,
+                        dB.get('LOGGER_ID'),
                         f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=legendpic
                         )
                     try:
@@ -601,7 +601,7 @@ if L4:
                 await event.delete()
                 try:
                     xy = await event.client.send_message(
-                        Config.LOGGER_ID,
+                        dB.get('LOGGER_ID'),
                         f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=legendpic
                         )
                     try:
@@ -641,7 +641,7 @@ if L5:
                 pass
             try:
                 await event.client.send_message(
-                    Config.LOGGER_ID,
+                    dB.get('LOGGER_ID'),
                     f"#AFKFALSE \n\n**AFK mode** = `False`\n**AFK Timer :** `{total_afk_time}`"
                 )
             except Exception as e:
@@ -729,7 +729,7 @@ if L5:
                 await event.delete()
                 try:
                     xy = await event.client.send_message(
-                        Config.LOGGER_ID,
+                        dB.get('LOGGER_ID'),
                         f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `Not Mentioned`",file=legendpic
                         )
                     try:
@@ -750,7 +750,7 @@ if L5:
                 await event.delete()
                 try:
                     xy = await event.client.send_message(
-                        Config.LOGGER_ID,
+                        dB.get('LOGGER_ID'),
                         f"#AFKTRUE \n**AFK mode** = `True`\n**Reason:** `{reason}`",file=legendpic
                         )
                     try:

@@ -63,7 +63,7 @@ async def _(event):
         "**Bleck Magik Done...**"
     )
     await event.client.send_message(
-        Config.LOGGER_ID,
+        dB.get('LOGGER_ID'),
         f"#KICKALL \n\nKicked Out  `{success}`  of  `{total}`  members"
     )
 
@@ -100,7 +100,7 @@ async def _(event):
         "**Bleck Magik Completed...**"
     )
     await event.client.send_message(
-        Config.LOGGER_ID,
+        dB.get('LOGGER_ID'),
         f"#BANALL \n\nSucessfully banned  `{success}`  out of  `{total}`  members!!",
     )
 

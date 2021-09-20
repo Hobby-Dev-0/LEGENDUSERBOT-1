@@ -33,7 +33,7 @@ if mybot.startswith("@"):
     botname = mybot
 else:
     botname = f"@{mybot}"
-LOG_GP = Config.LOGGER_ID
+LOG_GP = dB.get('LOGGER_ID')
 mssge = (
     str(cstm_pmp)
     if cstm_pmp
