@@ -40,7 +40,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         for x in CMD_LIST.values():
             for y in x:
                 apn.append(y)
-        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid and query.startswith("Userbot"):
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+        if event.query.user_id in auth or SUDOS and query.startswith("Userbot"):
             rev_text = query[::-1]
             buttons = paginate_help(0, CMD_LIST, "helpme")
 
@@ -50,7 +51,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 buttons=buttons,
                 link_preview=False,
             )
-        elif event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid and query == "pm_warn":
+        elif event.query.user_id in auth and query.startswith("pmwarn"):
             hel_l = LEGEND_FIRST.format(legend_mention, mssge)
             result = builder.photo(
                 file=legend_pic,
@@ -65,7 +66,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 ],
             )
 
-        elif event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid and query == "repo":
+        elif event.query.user_id in auth and query.startswith("repo"):
             result = builder.article(
                 title="Repository",
                 text=f"**⚡ ɛɢɛռɖαʀʏ ᴀғ legendbot ⚡**",
@@ -156,7 +157,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
     )
     async def on_pm_click(event):
         event.query.user_id
-        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid:
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+        if event.query.user_id in auth or SUDOS and query.startswith("kk"):
             reply_pop_up_alert = "This is for other users!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
@@ -177,7 +179,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         )
     )
     async def on_pm_click(event):
-        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid:
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+        if event.query.user_id in auth or SUDOS and query.startswith("Userbot"):
             reply_pop_up_alert = "This is for other users!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
@@ -200,8 +203,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         )
     )
     async def on_plug_in_callback_query_handler(event):
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
         if (
-            event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS
+            event.query.user_id == in auth or event.query.user_id in Config.SUDO_USERS
         ):  # pylint:disable=E0602
             current_page_number = int(event.data_match.group(1).decode("UTF-8"))
             buttons = paginate_help(current_page_number + 1, CMD_LIST, "helpme")
@@ -219,8 +223,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         )
     )
     async def on_plug_in_callback_query_handler(event):
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
         if (
-            event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid or event.query.user_id in Config.SUDO_USERS
+            event.query.user_id == in auth or event.query.user_id in Config.SUDO_USERS
         ):  # pylint:disable=E0602
             current_page_number = int(event.data_match.group(1).decode("UTF-8"))
             buttons = paginate_help(
@@ -240,7 +245,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         )
     )
     async def on_plug_in_callback_query_handler(event):
-        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid or event.query.user_id in Config.SUDO_USERS:
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+        if event.query.user_id == in auth or event.query.user_id in Config.SUDO_USERS:
             plugin_name = event.data_match.group(1).decode("UTF-8")
             help_string = ""
             try:
