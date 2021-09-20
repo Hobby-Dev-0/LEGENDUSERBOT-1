@@ -23,9 +23,7 @@ LEGENDversion = "𝚅3.𝙾"
 perf = "[ †hê Lêɠêɳ̃dẞø† ]"
 
 
-DEVLIST = [
-    "1938996006"
-]
+
 async def get_user_id(ids):
     if str(ids).isdigit():
         userid = int(ids)
