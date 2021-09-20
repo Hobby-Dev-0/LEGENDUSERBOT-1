@@ -78,6 +78,7 @@ def load_module(shortname):
         mod.bot = Legend
         mod.L1 = Legend
         mod.L2 = L2
+        mod.hell_cmd = legend_cmd
         mod.L3 = L3
         mod.L4 = L4
         mod.L5 = L5
