@@ -2,7 +2,6 @@ import io
 import re
 from math import ceil
 
-from config import Config
 from telethon import custom, events
 from userbot import CMD_LIST
 
