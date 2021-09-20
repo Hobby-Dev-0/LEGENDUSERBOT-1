@@ -38,7 +38,7 @@ async def module():
 
 async def assistant():
   if LOAD_ASSISTANT == True:
-    path = "userbot/plugins/assistant/*.py"
+    path = "userbot/plugins/Assistant/*.py"
     files = glob.glob(path)
     for name in files:
       with open(name) as f:
