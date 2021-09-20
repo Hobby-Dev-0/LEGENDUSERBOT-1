@@ -2,6 +2,7 @@ import os
 
 ENV = bool(os.environ.get("ENV", False))
 
+from telethon.tl.types import ChatBannedRights
 
 class Config(object):
     LOGGER = True
