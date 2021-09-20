@@ -28,13 +28,7 @@ async def module():
     with open(name) as f:
       path1 = Path(f.name)
       shortname = path1.stem
-      try:
-        load_module(shortname.replace(".py", ""))
-        if not shortname.startswith("__") or shortname.startswith("_"):
-          LOGS.info(f"LEGEND-BOT 3.0 - Official -  Installed - {shortname}")
-      except Exception as e:
-        LOGS.warning(f"LEGEND-BOT 3.0 - Official - ERROR - {shortname}")
-        LOGS.warning(str(e))
+      load_module(shortname.replace(".py", ""))
 
 async def assistant():
     path = "userbot/plugins/Assistant/*.py"
