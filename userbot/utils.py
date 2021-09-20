@@ -810,12 +810,38 @@ def start_assistant(shortname):
         import sys
         from pathlib import Path
 
-        path = Path(f"userbot/plugins/assistant/{shortname}.py")
-        name = "userbot.plugins.assistant.{}".format(shortname)
+        path = Path(f"userbot/plugins/Asistant/{shortname}.py")
+        name = "userbot.plugins.Assistant.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.tgbot = bot.tgbot
+        mod.tbot = tbot
+        mod.bot = Legend
+        mod.L1 = Legend
+        mod.L2 = L2
+        mod.L3 = L3
+        mod.L4 = L4
+        mod.L5 = L5
+        mod.Legend = Legend
+        mod.LegendBot = LegendBot
+        mod.tbot = LegendBot
+        mod.tgbot = bot.tgbot
+        #mod.LEGEND = LEGEND
+        mod.tgbot = bot.tgbot
+        mod.Var = Var
+        mod.command = command
+        mod.logger = logging.getLogger(shortname)
+        # support for uniborg
+        sys.modules["uniborg.util"] = userbot.utils
+        mod.Config = Config
+        mod.borg = bot
+        mod.errors_handler = errors_handler
+        mod.ultroid_cmd = legend_cmd
+        mod.LEGENDBOT = bot
+        mod.legend_cmd = legend_cmd
+        mod.edit_or_reply = edit_or_reply
+        mod.delete_LEGEND = delete_LEGEND
         spec.loader.exec_module(mod)
-        sys.modules["userbot.plugins.assistant" + shortname] = mod
+        sys.modules["userbot.plugins.Assistant" + shortname] = mod
         print("Assistant Has imported " + shortname)  
 
