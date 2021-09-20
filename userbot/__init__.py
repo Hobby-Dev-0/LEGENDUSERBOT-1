@@ -11,6 +11,7 @@ BOTLOG = True
 StartTime = time.time()
 LEGENDversion = "𝚅3.𝙾"
 botversion = "𝚅3.𝙾"
+log = os.environ.get("LOGGER_ID")
 
 #New Tcp
 bot = Legend
@@ -100,6 +101,12 @@ binaries = {
 if not dB.get("COMMAND_HAND_LER"):
     dB.set("COMMAND_HAND_LER", ".")
 
+if not dB.get("LOGGER_ID"):
+    try:
+        dB.set("LOGGER_ID", log)
+    except:
+        dB.set("LOGGER_ID", "-100")
+    
 for binary, path in binaries.items():
     downloader = SmartDL(binary, path, progress_bar=False)
     downloader.start()
