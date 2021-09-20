@@ -43,10 +43,7 @@ async def assistant():
       with open(name) as f:
         path1 = Path(f.name)
         shortname = path1.stem
-        try:
-          start_assistant(shortname.replace(".py", ""))
-        except Exception as er:
-          print(er)
+        start_assistant(shortname.replace(".py", ""))
 
 addon = dB.get("ADDONS") or False                
 async def addons():
