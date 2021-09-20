@@ -18,10 +18,6 @@ class Config(object):
     TMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", None)
     # This is required for the modules involving the file system.
     TMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
-    # warn mode for anti flood
-    ANTI_FLOOD_WARN_MODE = ChatBannedRights(
-        until_date=None, view_messages=None, send_messages=True
-    )
     LOGGER = True
     OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
     TAG_LOG = os.environ.get("TAG_LOG", None)
