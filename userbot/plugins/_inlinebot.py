@@ -31,7 +31,7 @@ ALV_PIC = Config.ALIVE_PIC
 help_pic = Config.HELP_PIC or "https://telegra.ph/file/6a08bc3d83b51923f47b2.jpg"
 PM_WARNS = {}
 PREV_REPLY_MESSAGE = {}
-
+SUDOS = dB.get("SUDO_USERS")
 mybot = Config.BOT_USERNAME
 if mybot.startswith("@"):
     botname = mybot
@@ -249,7 +249,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"pmclick")))
     async def on_pm_click(event):
-        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid:
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+        if event.query.user_id in auth:
             reply_pop_up_alert = "This is for Other Users..."
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
@@ -259,7 +260,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"req")))
     async def on_pm_click(event):
-        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid:
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+        if event.query.user_id in auth:
             reply_pop_up_alert = "This is for other users!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
@@ -278,7 +280,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"chat")))
     async def on_pm_click(event):
         event.query.user_id
-        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid:
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+        if event.query.user_id in auth:
             reply_pop_up_alert = "This is for other users!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
@@ -296,7 +299,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"heheboi")))
     async def on_pm_click(event):
-        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid:
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+        if event.query.user_id in auth:
             reply_pop_up_alert = "This is for other users!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
@@ -336,7 +340,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"reopen")))
     async def reopn(event):
-            if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid or event.query.user_id in Config.SUDO_USERS:
+            auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+            if event.query.user_id in auth:
                 current_page_number=0
                 simp = button(current_page_number, CMD_HELP)
                 veriler = button(0, sorted(CMD_HELP))
@@ -356,7 +361,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"close")))
     async def on_plug_in_callback_query_handler(event):
-        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid or event.query.user_id in Config.SUDO_USERS:
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+        if event.query.user_id in auth:
             veriler = custom.Button.inline(f"{legend_emoji1} Re-Open Menu {legend_emoji2}", data="reopen")
             await event.edit(f"**⚜️ Lêɠêɳ̃dẞø† Mêñû Prõvîdêr háš běěn čłøšĕd by {legend_mention} ⚜️**\n\n**Bot Of :**  {legend_mention}\n\n            [©️Lêɠêɳ̃dẞø†]({chnl_link})", buttons=veriler, link_preview=False)
         else:
@@ -372,7 +378,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         for x in CMD_LIST.values():
             for y in x:
                 apn.append(y)
-        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid or event.query.user_id in Config.SUDO_USERS:
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+        if event.query.user_id in auth or sudos:
             await event.edit(
                 f"**𓆩♥️{legend_mention}♥️𓆪**\n\n**🕹️𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍⭆ `{len(CMD_HELP)}`**\n**⌨️𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`**\n**🎒𝙿𝚊𝚐𝚎⭆ {page + 1}/{veriler[0]}**",
                 buttons=veriler[1],
@@ -407,7 +414,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         buttons = [buttons[i : i + 2] for i in range(0, len(buttons), 2)]
         buttons.append([custom.Button.inline(f"{legend_emoji1} Main Menu {legend_emoji2}", data=f"page({page})")])
         auth = await clients_list(Config, Legend, L2, L3, L4, L5)
-        if event.query.user_id in auth:
+        if event.query.user_id in auth or sudos:
             await event.edit(
                 f"**📗 𝙵𝚒𝚕𝚎 :**  `{commands}`\n**🔢 Number of commands :**  `{len(CMD_HELP_BOT[commands]['commands'])}`",
                 buttons=buttons,
