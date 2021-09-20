@@ -132,7 +132,7 @@ print("Loading Modules / Plugins")
 bot.loop.run_until_complete(module())
 bot.loop.run_until_complete(addons())
 
-print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {leg_ver}
+print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {LEGENDversion}
 TYPE :-  .legend OR .ping CHECK IF I'M ON!
 ╔════❰LEGENDBOT❱═❍⊱❁۪۪
 ║┣⪼ Version - 3.0
