@@ -40,7 +40,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-@tgbot.on(events.NewMessage(pattern="^/ping", func=lambda e: e.sender_id == bot.uid))
+@tgbot.on(events.NewMessage(pattern="^/ping", func=lambda e: e.sender_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid))
 async def _(event):
     start = datetime.now()
     end = datetime.now()
