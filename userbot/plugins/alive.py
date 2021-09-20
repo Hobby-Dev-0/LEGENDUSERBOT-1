@@ -11,7 +11,7 @@ from userbot.cmdhelp import CmdHelp
 import datetime
 import random
 import time
-
+legend_ver = "3.0"
 from telethon.errors import ChatSendInlineForbiddenError as noin
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
 
