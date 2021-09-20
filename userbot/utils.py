@@ -826,21 +826,6 @@ def start_assistant(shortname):
         mod.LegendBot = LegendBot
         mod.tbot = LegendBot
         mod.tgbot = bot.tgbot
-        #mod.LEGEND = LEGEND
-        mod.tgbot = bot.tgbot
-        mod.Var = Var
-        mod.command = command
-        mod.logger = logging.getLogger(shortname)
-        # support for uniborg
-        sys.modules["uniborg.util"] = userbot.utils
-        mod.Config = Config
-        mod.borg = bot
-        mod.errors_handler = errors_handler
-        mod.ultroid_cmd = legend_cmd
-        mod.LEGENDBOT = bot
-        mod.legend_cmd = legend_cmd
-        mod.edit_or_reply = edit_or_reply
-        mod.delete_LEGEND = delete_LEGEND
         spec.loader.exec_module(mod)
         sys.modules["userbot.plugins.Assistant" + shortname] = mod
         print("Assistant Has imported " + shortname)  
