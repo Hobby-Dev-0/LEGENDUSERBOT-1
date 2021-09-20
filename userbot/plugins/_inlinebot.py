@@ -11,7 +11,7 @@ from . import *
 legend_pic = (
     dB.get("PM_PIC") or "https://telegra.ph/file/6a08bc3d83b51923f47b2.jpg"
 )
-cstm_pmp = Config.CUSTOM_PMPERMIT
+cstm_pmp = dB.get("CUSTM_PM")
 ALV_PIC = dB.get("ALIVE_PIC")
 mssge = (
     str(cstm_pmp)
