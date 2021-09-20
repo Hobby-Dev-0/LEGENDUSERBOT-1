@@ -28,7 +28,6 @@ ALIVE_TEMP = """
 ┣─ <b>» legendbot ~</b> <i>{}</i>
 ┣─ <b>» Sudo ~</b> <i>{}</i>
 ┣─ <b>» Uptime ~</b> <i>{}</i>
-┣─ <b>» Ping ~</b> <i>{}</i>
 ╰──────────────
 <b><i>»»» <a href='https://t.me/Its_LegendBot'>[ legend bot ]</a> «««</i></b>
 """
@@ -54,7 +53,7 @@ async def up(event):
     legend_pic = PIC
     end = datetime.datetime.now()
     ling = (end - start).microseconds / 1000
-    omk = ALIVE_TEMP.format(Its_LegendBoy, LEGEND_USER , legend_mention, tel_ver, legend_ver, is_sudo, uptime)
+    omk = ALIVE_TEMP.format(Its_LegendBoy, LEGEND_USER , legend_mention, legend_ver, tel_ver, uptime, is_sudo)
     await event.client.send_file(event.chat_id, file=legend_pic, caption=omk, parse_mode="HTML")
     await legend.delete()
 
