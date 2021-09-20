@@ -107,8 +107,6 @@ if ENV:
         EMOJI_IN_HELP2 = os.environ.get("EMOJI_IN_HELP2", "🌹 ")
         # specify command handler that should be used for the plugins
         # this should be a valid "regex" pattern
-        COMMAND_HAND_LER = dB.get("COMMAND_HAND_LER")
-        HANDLER = COMMAND_HAND_LER
         #custom animation to kang plugin
         CUSTOM_STICKER_PACK_NAME = os.environ.get("CUSTOM_STICKER_PACK_NAME", None)
         # specify list of users allowed to use bot
