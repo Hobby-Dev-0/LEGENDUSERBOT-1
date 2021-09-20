@@ -29,11 +29,6 @@ class Development(Config):
   # and type /id and paste that id here.
   # replace that -100 with that group id.
   PRIVATE_GROUP_BOT_API_ID = -100
-
-  # Custom Command Handler. 
-  COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", r"\."
-  #User Command Handler
-  HANDLER = os.environ.get("COMMAND_HAND_LER", r"\."
   # enter the userid of sudo users.
   # you can add multiple ids by separating them by space.
   # fill values in [] only.
