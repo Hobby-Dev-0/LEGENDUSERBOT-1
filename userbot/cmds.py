@@ -1,5 +1,5 @@
 import os
-from userbot import CMD_HELP, CMD_HELP_BOT
+from userbot import CMD_HELP, CMD_HELP_BOT, dB
 
 HANDLER = dB.get("COMMAND_HAND_LER")
       
