@@ -6,6 +6,7 @@ from telethon import events
 CMD_LIST = {}
 LOAD_PLUG = {}
 from .session import L2, L3, L4, L5, Legend
+from ..__main__ import dB
 bot = Legend
 
 BL_CHAT = "-1001500629429"
