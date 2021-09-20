@@ -1,5 +1,6 @@
 
 from userbot.startup import *
+from userbot.startup.decs import *
 from userbot.utils import *
 from userbot.config import *
 from userbot import *
