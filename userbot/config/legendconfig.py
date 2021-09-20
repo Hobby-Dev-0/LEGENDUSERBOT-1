@@ -1,7 +1,5 @@
 import os
 
-from telethon.tl.types import ChatBannedRights
-from .. import dB
 ENV = bool(os.environ.get("ENV", False))
 
 
@@ -93,7 +91,7 @@ class Config(object):
     # Get your own ACCESS_KEY from http://api.screenshotlayer.com/api/capture
     SCREEN_SHOT_LAYER_ACCESS_KEY = os.environ.get("SCREEN_SHOT_LAYER_ACCESS_KEY", None)
         # Send .get_id in any group to fill this value.
-    SUDO_COMMAND_HAND_LER = dB.get("SUDO_COMMAND_HAND_LER")
+    SUDO_COMMAND_HAND_LER = ""
 
         # This is required for the plugins involving the file system.
     TMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", "./userbot/DOWNLOADS/")
@@ -164,7 +162,7 @@ class Config(object):
     EMOJI_IN_HELP2 = os.environ.get("EMOJI_IN_HELP2", "🌹 ")
         # specify command handler that should be used for the plugins
         # this should be a valid "regex" pattern
-    COMMAND_HAND_LER = dB.get("COMMAND_HAND_LER")
+    COMMAND_HAND_LER = ""
     HANDLER = COMMAND_HAND_LER
       #custom animation to kang plugin
     CUSTOM_STICKER_PACK_NAME = os.environ.get("CUSTOM_STICKER_PACK_NAME", None)
