@@ -6,13 +6,12 @@ from telethon import events
 CMD_LIST = {}
 LOAD_PLUG = {}
 from .session import L2, L3, L4, L5, Legend
-from ..__main__ import dB
 bot = Legend
 
 BL_CHAT = "-1001500629429"
-SUDO_USERS = dB.get("SUDO_USERS")
-HANDLER = dB.get("COMMAND_HAND_LER")
-SUDO_HANDLER = dB.get("SUDO_HANDLER")
+SUDO_USERS = os.environ.get("SUDO_USERS")
+HANDLER = os.environ.get("COMMAND_HAND_LER")
+SUDO_HANDLER = os.environ.get("SUDO_HANDLER")
 def legend_cmd(
     pattern: str = None,
     allow_sudo: bool = True,
