@@ -17,7 +17,7 @@ from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.messages import ExportChatInviteRequest
 
-from legendbot.sql.gvar_sql import gvarstat
+from ..sql.gvar_sql import gvarstat
 from . import *
 
 legend_row = dB.get("BUTTONS_IN_HELP")
