@@ -12,6 +12,7 @@ legend_pic = (
 )
 cstm_pmp = dB.get("CUSTM_PM")
 ALV_PIC = dB.get("ALIVE_PIC")
+help_pic = dB.get("HELP_PIC") or "https://telegra.ph/file/6a08bc3d83b51923f47b2.jpg"
 mssge = (
     str(cstm_pmp)
     if cstm_pmp
