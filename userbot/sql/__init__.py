@@ -6,7 +6,13 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 # from hellbot.config import Config
 
 DB_URI = os.environ.get("DATABASE_URL")
+import os
+import re
 
+uri = os.getenv("DATABASE_URL")  # or other relevant config var
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+# rest of connection code using the connection string `uri`
 def start() -> scoped_session:
     engine = create_engine(DB_URI)
     BASE.metadata.bind = engine
