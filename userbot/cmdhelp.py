@@ -1,7 +1,7 @@
-from userbot import CMD_HELP, CMD_HELP_BOT
+from userbot import CMD_HELP, CMD_HELP_BOT, dB
 import os
 
-COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", r".")
+COMMAND_HAND_LER = dB.get("COMMAND_HAND_LER")
 
 #################################################################################################################
 
