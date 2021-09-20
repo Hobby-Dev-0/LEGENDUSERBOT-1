@@ -56,34 +56,9 @@ async def up(event):
     await legend.delete()
 
 
-msg = """{}\n
-<b><i>🏅 𝙱𝚘𝚝 𝚂𝚝𝚊𝚝𝚞𝚜 🏅</b></i>
-<b>Telethon ≈</b>  <i>{}</i>
-<b>legendbot ≈</b>  <i>{}</i>
-<b>Uptime ≈</b>  <i>{}</i>
-<b>Abuse ≈</b>  <i>{}</i>
-<b>Sudo ≈</b>  <i>{}</i>
-"""
-botname = Config.BOT_USERNAME
-
-@legend_cmd(pattern="legend$")
-async def hell_a(event):
-    cid = await client_id(event)
-    ForGo10God, HELL_USER, hell_mention = cid[0], cid[1], cid[2]
-    am = gvarstat("ALIVE_MSG") or "<b>»» legend ιѕ σиℓιиє ««</b>"
-    try:
-        hell = await event.client.inline_query(botname, "alive")
-        await hell[0].click(event.chat_id)
-        if event.sender_id == ForGo10God:
-            await event.delete()
-    except (noin, dedbot):
-        await eor(event, msg.format(am, tel_ver, hell_ver, uptime, abuse_m, is_sudo), parse_mode="HTML")
-
 
 CmdHelp("alive").add_command(
   "alive", None, "Shows the Default Alive Message"
-).add_command(
-  "hell", None, "Shows Inline Alive Menu with more details."
 ).add_warning(
   "✅ Harmless Module"
 ).add()
