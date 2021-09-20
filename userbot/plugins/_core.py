@@ -31,7 +31,7 @@ async def kk(event):
     if len(OUTPUT) > 69:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "cmd_list.text"
-            hell_file = await event.client.send_file(
+            legend_file = await event.client.send_file(
                 event.chat_id,
                 out_file,
                 force_document=True,
@@ -39,7 +39,7 @@ async def kk(event):
                 thumb=thumb,
                 reply_to=reply_to_id,
             )
-            await edit_or_reply(hell_file, f"Output Too Large. This is the file for the list of plugins in bot.\n\n**BY :-** {HELL_USER}")
+            await edit_or_reply(legend_file, f"Output Too Large. This is the file for the list of plugins in bot.\n\n**BY :-** {LEGEND_USER}")
             await event.delete()
 
 
@@ -88,7 +88,7 @@ async def install(event):
                     for harm in HARMFUL:
                         if harm in rd:
                             os.remove(downloaded_file_name)
-                            return await hell.edit(f"**⚠️ WARNING !!** \n\n__Replied plugin file contains some harmful codes. Please consider checking the file. If you still want to install then use__ `{hl}install -f`. \n\n**Codes Detected :** \n• {harm}")
+                            return await legend.edit(f"**⚠️ WARNING !!** \n\n__Replied plugin file contains some harmful codes. Please consider checking the file. If you still want to install then use__ `{ld}install -f`. \n\n**Codes Detected :** \n• {harm}")
                 except BaseException:
                     pass
             if "(" not in downloaded_file_name:
@@ -107,32 +107,32 @@ async def install(event):
                             a = "__Installing...__"
                             b = 1
                         await legend.edit(a)
-                    return await hell.edit(f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {legend_mention}\n\n{string}\n\n        ⚡ **[ʟegend bot]({chnl_link})** ⚡", link_preview=False)
-                return await hell.edit(f"Installed module `{os.path.basename(downloaded_file_name)}`")
+                    return await legend.edit(f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {legend_mention}\n\n{string}\n\n        ⚡ **[Lêɠêɳ̃dẞø†]({chnl_link})** ⚡", link_preview=False)
+                return await legend.edit(f"Installed module `{os.path.basename(downloaded_file_name)}`")
             else:
                 os.remove(downloaded_file_name)
-                return await eod(hell, f"**Failed to Install** \n`Error`\nModule already installed or unknown format")
+                return await eod(legend, f"**Failed to Install** \n`Error`\nModule already installed or unknown format")
         except Exception as e: 
-            await eod(hell, f"**Failed to Install** \n`Error`\n{str(e)}")
+            await eod(legend, f"**Failed to Install** \n`Error`\n{str(e)}")
             return os.remove(downloaded_file_name)
 
 
-@hell_cmd(pattern=r"uninstall ?(.*)")
+@legend_cmd(pattern=r"uninstall ?(.*)")
 async def uninstall(event):
     shortname = event.text[11:]
     if ".py" in shortname:
         shortname = shortname.replace(".py", "")
-    hell = await eor(event, f"__Trying to uninstall plugin__ `{shortname}` ...")
+    legend = await eor(event, f"__Trying to uninstall plugin__ `{shortname}` ...")
     dir_path =f"./userbot/plugins/{shortname}.py"
     try:
         remove_plugin(shortname)
         os.remove(dir_path)
-        await eod(hell, f"**Uninstalled plugin** `{shortname}` **successfully.**")
+        await eod(legend, f"**Uninstalled plugin** `{shortname}` **successfully.**")
     except OSError as e:
-        await eod(hell, f"**Error !!** \n\n`{dir_path}` : __{e.strerror}__")
+        await eod(legend, f"**Error !!** \n\n`{dir_path}` : __{e.strerror}__")
 
 
-@hell_cmd(pattern=r"unload (?P<shortname>\w+)$")
+@legend_cmd(pattern=r"unload (?P<shortname>\w+)$")
 async def unload(event):
     shortname = event.pattern_match["shortname"]
     try:
