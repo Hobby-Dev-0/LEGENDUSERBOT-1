@@ -406,7 +406,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
 
         buttons = [buttons[i : i + 2] for i in range(0, len(buttons), 2)]
         buttons.append([custom.Button.inline(f"{legend_emoji1} Main Menu {legend_emoji2}", data=f"page({page})")])
-        if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid or event.query.user_id in Config.SUDO_USERS:
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+        if event.query.user_id in auth:
             await event.edit(
                 f"**📗 𝙵𝚒𝚕𝚎 :**  `{commands}`\n**🔢 Number of commands :**  `{len(CMD_HELP_BOT[commands]['commands'])}`",
                 buttons=buttons,
