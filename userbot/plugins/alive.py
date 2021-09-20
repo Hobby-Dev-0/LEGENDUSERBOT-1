@@ -40,8 +40,7 @@ async def up(event):
     cid = await client_id(event)
     Its_LegendBoy, LEGEND_USER , legend_mention = cid[0], cid[1], cid[2]
     start = datetime.datetime.now()
-    hell = await eor(event, "`Building Alive....`")
-    uptime = await get_time((time.time() - StartTime))
+    legend = await eor(event, "`Building Alive....`")
     a = gvarstat("ALIVE_PIC")
     if a is not None:
         b = a.split(" ")
@@ -52,12 +51,12 @@ async def up(event):
         PIC = random.choice(c)
     else:
         PIC = dB.get("ALIVE_PIC")
-    hell_pic = PIC
+    legend_pic = PIC
     end = datetime.datetime.now()
     ling = (end - start).microseconds / 1000
     omk = ALIVE_TEMP.format(Its_LegendBoy, LEGEND_USER , legend_mention, tel_ver, legend_ver, is_sudo, uptime)
-    await event.client.send_file(event.chat_id, file=hell_pic, caption=omk, parse_mode="HTML")
-    await hell.delete()
+    await event.client.send_file(event.chat_id, file=legend_pic, caption=omk, parse_mode="HTML")
+    await legend.delete()
 
 
 msg = """{}\n
@@ -74,7 +73,6 @@ botname = Config.BOT_USERNAME
 async def hell_a(event):
     cid = await client_id(event)
     ForGo10God, HELL_USER, hell_mention = cid[0], cid[1], cid[2]
-    uptime = await get_time((time.time() - StartTime))
     am = gvarstat("ALIVE_MSG") or "<b>»» legend ιѕ σиℓιиє ««</b>"
     try:
         hell = await event.client.inline_query(botname, "alive")
