@@ -225,7 +225,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
     async def on_plug_in_callback_query_handler(event):
         auth = await clients_list(Config, Legend, L2, L3, L4, L5)
         if (
-            event.query.user_id == in auth or event.query.user_id in Config.SUDO_USERS
+            event.query.user_id in auth or event.query.user_id in Config.SUDO_USERS
         ):  # pylint:disable=E0602
             current_page_number = int(event.data_match.group(1).decode("UTF-8"))
             buttons = paginate_help(
@@ -246,7 +246,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
     )
     async def on_plug_in_callback_query_handler(event):
         auth = await clients_list(Config, Legend, L2, L3, L4, L5)
-        if event.query.user_id == in auth or event.query.user_id in Config.SUDO_USERS:
+        if event.query.user_id in auth or event.query.user_id in Config.SUDO_USERS:
             plugin_name = event.data_match.group(1).decode("UTF-8")
             help_string = ""
             try:
