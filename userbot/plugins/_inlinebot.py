@@ -71,7 +71,7 @@ def button(page, modules):
     for pairs in pairs[page]:
         buttons.append(
             [
-                custom.Button.inline(f"{legend_emoji} " + pair + f" {legend_emoji}", data=f"Information[{page}]({pair})")
+                custom.Button.inline(f"{legend_emoji1} " + pair + f" {legend_emoji2}", data=f"Information[{page}]({pair})")
                 for pair in pairs
             ]
         )
@@ -79,13 +79,13 @@ def button(page, modules):
     buttons.append(
         [
             custom.Button.inline(
-               f"◀️ Back {legend_emoji}", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
+               f"⭅ϐαϲκ", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
             ),
             custom.Button.inline(
-               f"• ❌ •", data="close"
+               f"♦️ ❎ ♦️", data="close"
             ),
             custom.Button.inline(
-               f"{legend_emoji} Next ▶️", data=f"page({0 if page == (max_pages - 1) else page + 1})"
+               f"ղҽxԵ⭆", data=f"page({0 if page == (max_pages - 1) else page + 1})"
             ),
         ]
     )
