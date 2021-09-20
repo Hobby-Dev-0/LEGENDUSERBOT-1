@@ -97,6 +97,9 @@ binaries = {
     "bin/cmrudl"
 }
 
+if not dB.get("COMMAND_HAND_LER"):
+    dB.set("COMMAND_HAND_LER", ".")
+
 for binary, path in binaries.items():
     downloader = SmartDL(binary, path, progress_bar=False)
     downloader.start()
