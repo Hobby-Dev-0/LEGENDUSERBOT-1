@@ -370,7 +370,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
    
 
-     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"page\((.+?)\)")))
+    @tgbot.on(
+        callbackquery.CallbackQuery(data=compile(b"page\((.+?)\)"))
+    )
     async def page(event):
         page = int(event.data_match.group(1).decode("UTF-8"))
         veriler = button(page, CMD_HELP)
@@ -385,7 +387,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 buttons=veriler[1],
                 link_preview=False,
             )
-
 
     @tgbot.on(
         callbackquery.CallbackQuery(data=compile(b"Information\[(\d*)\]\((.*)\)"))
