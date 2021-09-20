@@ -15,8 +15,8 @@ import asyncio
 import telethon.utils
 os.system("pip install -U telethon")
 
-ll2= dB.get("SUDO_COMMAND_HAND_LER")
-ll = dB.get("COMMAND_HAND_LER")
+ld= dB.get("SUDO_COMMAND_HAND_LER")
+lds = dB.get("COMMAND_HAND_LER")
 
    
 
@@ -121,7 +121,7 @@ else:
             LOGS.info(f"» Total Clients = {total} «")
         else:
             bot.start()
-            failed_client = hells()
+            failed_client = legends()
             total = 5 - failed_client
             LOGS.info(f"» Total Clients = {total} «")
     except Exception as e:
@@ -132,7 +132,7 @@ print("Loading Modules / Plugins")
 bot.loop.run_until_complete(module())
 bot.loop.run_until_complete(addons())
 
-print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {LEGENDversion}
+print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {leg_ver}
 TYPE :-  .legend OR .ping CHECK IF I'M ON!
 ╔════❰LEGENDBOT❱═❍⊱❁۪۪
 ║┣⪼ Version - 3.0
