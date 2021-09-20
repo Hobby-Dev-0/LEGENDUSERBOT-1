@@ -10,8 +10,8 @@ bot = Legend
 
 BL_CHAT = "-1001500629429"
 SUDO_USERS = os.environ.get("SUDO_USERS")
-HANDLER = os.environ.get("COMMAND_HAND_LER")
-SUDO_HANDLER = os.environ.get("SUDO_HANDLER")
+HANDLER = os.environ.get("COMMAND_HAND_LER", ".")
+SUDO_HANDLER = os.environ.get("SUDO_HANDLER", ".")
 def legend_cmd(
     pattern: str = None,
     allow_sudo: bool = True,
