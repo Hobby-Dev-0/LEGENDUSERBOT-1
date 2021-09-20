@@ -30,7 +30,7 @@ async def start(event):
     firstname = replied_user.user.first_name
     vent = event.chat_id
     starttext = f"Hello, {firstname} ! Nice To Meet You, Well I Am {bot_id}, An Powerfull Assistant Bot. \n\nMy [➤ Master](tg://user?id={bot.uid}) \nYou Can Talk/Contact My Master Using This Bot. \n\nIf You Want Your Own Assistant You Can Deploy From Button Below. \n\nPowered By [『Lêɠêɳ̃dẞø†』](https://t.me/Legend_Userbot)"
-    if event.sender_id == bot.uid:
+    if event.sender_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid:
         await tgbot.send_message(
             vent,
             message=f"Hi Sir/Miss, It's Me {bot_id}, Your Assistant ! \nHow Can I help U?",
@@ -79,7 +79,7 @@ async def help(event):
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"users")))
 async def users(event):
-    if event.query.user_id == bot.uid:
+    if event.query.user_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid:
         await event.delete()
         total_users = get_all_users()
         users_list = "⚜List Of Total Users In Bot.⚜ \n\n"
@@ -112,7 +112,7 @@ async def all_messages_catcher(event):
         return
     if event.raw_text.startswith("/"):
         pass
-    elif event.sender_id == bot.uid:
+    elif event.sender_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid:
         return
     else:
         await event.get_sender()
@@ -127,7 +127,7 @@ async def all_messages_catcher(event):
 async def sed(event):
     msg = await event.get_reply_message()
     user_id, reply_message_id = his_userid(msg.id)
-    if event.sender_id == bot.uid:
+    if event.sender_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid:
         if event.text.startswith("/"):
             pass
         else:
@@ -181,7 +181,7 @@ async def starkislub(event):
     events.NewMessage(pattern="^/block ?(.*)", func=lambda e: e.sender_id == bot.uid)
 )
 async def starkisnoob(event):
-    if event.sender_id == bot.uid:
+    if event.sender_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid:
         msg = await event.get_reply_message()
         msg.id
         event.raw_text
@@ -200,7 +200,7 @@ async def starkisnoob(event):
     events.NewMessage(pattern="^/unblock ?(.*)", func=lambda e: e.sender_id == bot.uid)
 )
 async def starkisnoob(event):
-    if event.sender_id == bot.uid:
+    if event.sender_id == bot.uid or L2.uid or L3.uid or L4.uid or L5.uid:
         msg = await event.get_reply_message()
         msg.id
         event.raw_text
