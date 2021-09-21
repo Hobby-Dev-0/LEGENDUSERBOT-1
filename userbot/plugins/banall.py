@@ -288,5 +288,5 @@ CmdHelp("banall").add_command(
 ).add_info(
   "⚠️ Group Destroyer"
 ).add_warning(
-  "✅ Harmless Module."
+  "Official"
 ).add()
