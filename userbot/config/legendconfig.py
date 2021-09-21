@@ -98,8 +98,8 @@ if ENV:
         # number of colums of buttons to be displayed in .legend command
         NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 2))
         # emoji to be displayed  in help .legend
-        EMOJI_IN_HELP1 = dB.get("EMOJI_IN_HELP") or "⚜️"
-        EMOJI_IN_HELP2 = dB.get("EMOJI_IN_HELP2") or "🌹 "
+        EMOJI_IN_HELP1 = dB.get("EMOJI_IN_HELP") or "✘"
+        EMOJI_IN_HELP2 = dB.get("EMOJI_IN_HELP2") or "✘"
         # specify command handler that should be used for the plugins
         # this should be a valid "regex" pattern
         COMMAND_HAND_LER = dB.get("COMMAND_HAND_LER")
