@@ -18,7 +18,7 @@ mssge = (
     if cstm_pmp
     else "**You Have Trespassed To My Master's PM!\nThis Is Illegal And Regarded As Crime.**"
 )
-
+SUDOS = dB.get("SUDO_USERS")
 USER_BOT_WARN_ZERO = (
     "Enough Of Your Flooding In My Master's PM!! \n\n**🚫 Blocked and Reported**"
 )
