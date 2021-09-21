@@ -114,7 +114,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             for x in CMD_LIST.values():
                 for y in x:
                     apn.append(y)
-            help_msg = f"𓆩♥️{legend_mention}♥️𓆪\n\n**🕹️𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍⭆ `{len(CMD_HELP)}`**\n**⌨️Tοταℓ Cοммαи∂ѕ⭆ `{len(apn)}`**\n**🎒Pαցҽ⭆ 1/{veriler[0]}** \n"
+            help_msg = f"𓆩♥️{legend_mention}♥️𓆪\n\n**🕹️Total Plugins Installed⭆ `{len(CMD_HELP)}`**\n**⌨️Tοταℓ Cοммαи∂ѕ⭆ `{len(apn)}`**\n**🎒Page⭆ 1/{veriler[0]}** \n"
             if help_pic and help_pic.endswith((".jpg", ".png")):
                 result = builder.photo(
                     help_pic,
@@ -381,7 +381,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         auth = await clients_list(Config, Legend, L2, L3, L4, L5)
         if event.query.user_id in auth or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
-                f"**𓆩♥️{legend_mention}♥️𓆪**\n\n**🕹️𝚃𝚘𝚝𝚊𝚕 𝙼𝚘𝚍𝚞𝚕𝚎𝚜 𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍⭆ `{len(CMD_HELP)}`**\n**⌨️𝚃𝚘𝚝𝚊𝚕 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜⭆ `{len(apn)}`**\n**🎒𝙿𝚊𝚐𝚎⭆ {page + 1}/{veriler[0]}**",
+                f"**𓆩♥️{legend_mention}♥️𓆪**\n\n**Total Plugins Here⭆ `{len(CMD_HELP)}`**\n**⌨️Owner⭆ `{legend_mention}`**\n**�Page⭆ {page + 1}/{veriler[0]}**",
                 buttons=veriler[1],
                 link_preview=False,
             )
@@ -416,7 +416,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         auth = await clients_list(Config, Legend, L2, L3, L4, L5)
         if event.query.user_id in auth or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
-                f"**📗 𝙵𝚒𝚕𝚎 :**  `{commands}`\n**🔢 Number of commands :**  `{len(CMD_HELP_BOT[commands]['commands'])}`",
+                f"**📗 Plugin :**  `{commands}`\n**🔢 Number of commands :**  `{len(CMD_HELP_BOT[commands]['commands'])}`",
                 buttons=buttons,
                 link_preview=False,
             )
