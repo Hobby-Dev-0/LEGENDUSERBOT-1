@@ -1,4 +1,5 @@
-
+import asyncio
+import os
 from userbot.startup import *
 from userbot.startup.decs import *
 from userbot.utils import *
@@ -15,6 +16,17 @@ from . import *
 LEGEND_USER = bot.me.first_name
 Its_LegendBoy = bot.uid
 legend_mention = f"[{LEGEND_USER}](tg://user?id={Its_LegendBoy})"
+
+async def bash(cmd):
+    process = await asyncio.create_subprocess_shell(
+        cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    stdout, stderr = await process.communicate()
+    err = stderr.decode().strip()
+    out = stdout.decode().strip()
+    return out, err
 
 
 legend_logo = "./userbot/resources/pics/-6163428037589314866_121.jpg"
