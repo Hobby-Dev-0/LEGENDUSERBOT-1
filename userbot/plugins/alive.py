@@ -13,15 +13,15 @@ import time
 legend_ver = "3.0"
 from telethon.errors import ChatSendInlineForbiddenError as noin
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
-
+CSTM_ALV_TEXT = Config.ALIVE_MSG or "Lêɠêɳ̃d Choice 𝖑𝖊ɠêɳ̃dẞø✞︎"
 from ..sql.gvar_sql import gvarstat
 from . import *
 
 #-------------------------------------------------------------------------------
 
 ALIVE_TEMP = """
-<b><i>🔥🔥legendbot ɨs օռʟɨռɛ🔥🔥</b></i>
-<i><b>↼ Øwñêr ⇀</i></b> : 『 <a href='tg://user?id={}'>{}</a> 』
+<b><i>🔥🔥{}🔥🔥</b></i>
+<i><b> Øաղ̃ҽ̈ɾ </i></b> : 『 <a href='tg://user?id={}'>{}</a> 』
 ╭──────────────
 ┣─ <b>» Telethon ~</b> <i>{}</i>
 ┣─ <b>» legendbot ~</b> <i>{}</i>
@@ -32,6 +32,7 @@ ALIVE_TEMP = """
 tel_ver = "1.23.0"
 
 @legend_cmd(pattern="alive$")
+@bot.on(sudo_cmd("alive")) 
 async def up(event):
     cid = await client_id(event)
     Its_LegendBoy, LEGEND_USER , legend_mention = cid[0], cid[1], cid[2]
@@ -50,7 +51,7 @@ async def up(event):
     legend_pic = PIC
     end = datetime.datetime.now()
     ling = (end - start).microseconds / 1000
-    omk = ALIVE_TEMP.format(Its_LegendBoy, LEGEND_USER,tel_ver , legend_ver)
+    omk = ALIVE_TEMP.format(CSTM_ALV_TEXT, Its_LegendBoy, LEGEND_USER,tel_ver , LEGENDversion)
     await event.client.send_file(event.chat_id, file=legend_pic, caption=omk, parse_mode="HTML")
     await legend.delete()
 
