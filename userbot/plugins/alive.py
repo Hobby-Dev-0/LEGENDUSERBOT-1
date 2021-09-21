@@ -3,7 +3,6 @@ import random
 import time
 from telethon.errors import ChatSendInlineForbiddenError as noin
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
-from userbot.Config.Config import Config
 from telethon import version
 from userbot import ALIVE_NAME, StartTime, LEGENDversion
 from LEGENDBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
