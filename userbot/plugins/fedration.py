@@ -63,6 +63,7 @@ async def _(event):
       await client.send_message(logs_id, "This is fed logger group")
     except:
       await event.edit(f"please add fed logger id by doing `{h1}setredis FED_LOGGER_ID group id`")
+      return
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         lavde = str(previous_message.sender_id)
