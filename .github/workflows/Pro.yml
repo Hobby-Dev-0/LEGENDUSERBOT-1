@@ -18,9 +18,9 @@ jobs:
 
         with:
 
-          find: "Config.LOGGER_ID"
+          find: "impoopp"
 
-          replace: "dB.get('LOGGER_ID')"
+          replace: "io"
 
       - name: Create Pull Request
 
