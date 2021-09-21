@@ -142,7 +142,7 @@ if ENV:
         PM_MSG = dB.get("PM_MSG", None)
         INSTANT_BLOCK = dB.get("INSTANT_BLOCK") or "ENABLE"
         YOUR_GROUP = "@Legend_Userbot"
-        YOUR_CHANNEL = "@Its_LegendBot.")
+        YOUR_CHANNEL = "@Its_LegendBot"
         BOT_PIC = dB.get("ALIVE_PIC", None)
         #auto bio
         BIO_MSG = dB.get("ALIVE_MSG", None)
