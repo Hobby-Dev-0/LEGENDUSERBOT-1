@@ -17,7 +17,7 @@ async def _(event):
     try:
       await client.send_message(logs_id, "This is fed logger group")
     except:
-      await eor(f"please add fed logger id by doing `{h1}setredis FED_LOGGER_ID group id`")
+      await legend(f"please add fed logger id by doing `{h1}setredis FED_LOGGER_ID group id`")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
