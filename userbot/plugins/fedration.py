@@ -17,7 +17,7 @@ async def _(event):
     try:
       await client.send_message(logs_id, "This is fed logger group")
     except:
-      await legend(f"please add fed logger id by doing `{h1}setredis FED_LOGGER_ID group id`")
+      await eor(f"please add fed logger id by doing `{h1}setredis FED_LOGGER_ID group id`")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -62,7 +62,7 @@ async def _(event):
     try:
       await client.send_message(logs_id, "This is fed logger group")
     except:
-      await eor(f"please add fed logger id by doing `{h1}setredis FED_LOGGER_ID group id`")
+      await event.edit(f"please add fed logger id by doing `{h1}setredis FED_LOGGER_ID group id`")
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         lavde = str(previous_message.sender_id)
