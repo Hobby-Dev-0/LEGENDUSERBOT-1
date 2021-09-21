@@ -89,6 +89,7 @@ def load_module(shortname):
         mod.tgbot = bot.tgbot
         #mod.LEGEND = LEGEND
         mod.ultroid_cmd = legend_cmd
+        mod.check_owner = check_owner
         mod.tgbot = bot.tgbot
         mod.Var = Var
         mod.command = command
@@ -191,6 +192,39 @@ def remove_plugin(shortname):
     except BaseException:
         raise ValueError
 
+
+import asyncio
+
+from telethon.errors import FloodWaitError, MessageNotModifiedError
+from telethon.events import CallbackQuery
+
+from .sql.globals import gvarstatus
+SUDOS = dB.get("SUDO_USERS")
+
+def check_owner(func):
+    async def wrapper(c_q: CallbackQuery):
+        auth = await clients_list(Config, Legend, L2, L3, L4, L5)
+        if c_q.query.user_id and (
+            c_q.query.user_id in auth
+            or c_q.query.user_id in SUDOS
+        ):
+            try:
+                await func(c_q)
+            except FloodWaitError as e:
+                await asyncio.sleep(e.seconds + 5)
+            except MessageNotModifiedError:
+                pass
+        else:
+            HELP_TEXT = (
+                gvarstatus("HELP_TEXT")
+                or "Only My Master can Access This !!\n\nDeploy your own LegendBot 3.0."
+            )
+            await c_q.answer(
+                HELP_TEXT,
+                alert=True,
+            )
+
+    return wrapper
 
 
 def admin_cmd(pattern=None, command=None, **args):
