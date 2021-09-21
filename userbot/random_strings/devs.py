@@ -27,5 +27,13 @@ HARMFUL = [
     "getredis",
     "rmredis",
     "session",
+    "PHONE",
+    "Phone",
+    "phune",
+    "redis",
     "get var",
+    "get_me",
+    "set",
+    "get",
+    "JoinChannelRequest",
 ]
