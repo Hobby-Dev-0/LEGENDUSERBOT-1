@@ -435,7 +435,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         cmd = event.data_match.group(1).decode("UTF-8")
         page = int(event.data_match.group(2).decode("UTF-8"))
         commands = event.data_match.group(3).decode("UTF-8")
-        result = f"**📗 𝙵𝚒𝚕𝚎 :**  `{cmd}`\n"
+        result = f"**📗 Plugin :**  `{cmd}`\n"
         if CMD_HELP_BOT[cmd]["info"]["info"] == "":
             if not CMD_HELP_BOT[cmd]["info"]["warning"] == "":
                 result += f"**🚦 Plugin Type :**  {CMD_HELP_BOT[cmd]['info']['warning']}\n\n"
@@ -445,14 +445,14 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             result += f"**ℹ️ 𝙸𝚗𝚏𝚘 :**  {CMD_HELP_BOT[cmd]['info']['info']}\n\n"
         command = CMD_HELP_BOT[cmd]["commands"][commands]
         if command["params"] is None:
-            result += f"**🛠 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 :**  `{COMMAND_HAND_LER[:1]}{command['command']}`\n"
+            result += f"**🛠 Commands :**  `{COMMAND_HAND_LER[:1]}{command['command']}`\n"
         else:
-            result += f"**🛠 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 :**  `{COMMAND_HAND_LER[:1]}{command['command']} {command['params']}`\n"
+            result += f"**🛠 Commands :**  `{COMMAND_HAND_LER[:1]}{command['command']} {command['params']}`\n"
         if command["example"] is None:
-            result += f"**💬 𝙴𝚡𝚙𝚕𝚊𝚗𝚊𝚝𝚒𝚘𝚗 :**  `{command['usage']}`\n\n"
+            result += f"**💬 Info :**  `{command['usage']}`\n\n"
         else:
-            result += f"**💬 𝙴𝚡𝚙𝚕𝚊𝚗𝚊𝚝𝚒𝚘𝚗 :**  `{command['usage']}`\n"
-            result += f"**⌨️ 𝙵𝚘𝚛 𝙴𝚡𝚊𝚖𝚙𝚕𝚎 :**  `{COMMAND_HAND_LER[:1]}{command['example']}`\n\n"
+            result += f"**💬 Info :**  `{command['usage']}`\n"
+            result += f"**⌨️ Example :**  `{COMMAND_HAND_LER[:1]}{command['example']}`\n\n"
         auth = await clients_list(Config, Legend, L2, L3, L4, L5)
         if event.query.user_id in auth or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
