@@ -761,10 +761,12 @@ if L5:
                     logger.warn(str(e))
 
 
-CmdHelp("afk").add_command(
-  'afk', '<reply to media>/<reason>', 'Marks you AFK with reason also shows afk time. Media also supported.\nUse # in message to chat without breaking AFK mode.', "afk <reason>`\n📍 **Exception :** `Use # in a msg to stay in afk mode while chatting."
-).add_info(
-  "Away From Keyboard"
-).add_warning(
-  "✅ Harmless Module."
-).add()
+CMD_HELP.update(
+    {
+        "afk": "__**PLUGIN NAME :** Afk__\
+\n\n ** CMD ** `.afk` [Optional Reason]\
+\n**USAGE  :  **Sets you as afk.\nReplies to anyone who tags/PM's \
+you telling them that you are AFK(reason)\n\n__Switches off AFK when you type back anything, anywhere.__\
+"
+    }
+)
