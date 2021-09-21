@@ -75,7 +75,7 @@ TELEGRAPH_MEDIA_LINKS = [
 ]
 
 
-@borg.on(admin_cmd(pattern="actressdp ?(.*)"))
+@legend_cmd(pattern="actressdp$")
 async def autopic(event):
     while True:
         piclink = random.randint(0, len(TELEGRAPH_MEDIA_LINKS) - 1)
