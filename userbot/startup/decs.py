@@ -4,12 +4,13 @@ import os
 from pathlib import Path
 from telethon import events
 CMD_LIST = {}
+from .connect import *
 LOAD_PLUG = {}
 from .session import L2, L3, L4, L5, Legend
 bot = Legend
 
 BL_CHAT = "-1001500629429"
-SUDO_USERS = os.environ.get("SUDO_USERS")
+SUDO_USERS = dB.get("SUDO_USERS")
 HANDLER = os.environ.get("COMMAND_HAND_LER", ".")
 SUDO_HANDLER = os.environ.get("SUDO_HANDLER", ".")
 def legend_cmd(
