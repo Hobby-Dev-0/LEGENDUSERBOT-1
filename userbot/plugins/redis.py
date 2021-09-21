@@ -81,5 +81,5 @@ CmdHelp("redis").add_command(
 ).add_command(
   "delredis", None, "Deletes the redis key"
 ).add_warning(
-  "✅ Safe Module."
+  "Official"
 ).add()
