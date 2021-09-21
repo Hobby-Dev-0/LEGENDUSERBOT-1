@@ -23,6 +23,7 @@ from userbot.helpers.exceptions import CancelProcess
 from userbot.config.Config import Config
 from .startup import *
 from .startup.decs import *
+from .startup.connect import *
 from userbot import bot
 from telethon import events
 from pathlib import Path
@@ -85,6 +86,8 @@ def load_module(shortname):
         mod.errors_handler = errors_handler
         mod.Legend = Legend
         mod.LegendBot = LegendBot
+        mod.Redis = dB.get
+        mod.dB = dB
         mod.tbot = LegendBot
         mod.tgbot = bot.tgbot
         #mod.LEGEND = LEGEND
