@@ -61,8 +61,7 @@ ALIVE_TEMP = """
 #-------------------------------------------------------------------------------
 tel_ver = "1.23.0"
 
-@legend_cmd(pattern="alive$")
- 
+@legend_cmd(pattern="alive$") 
 async def up(event):
     cid = await client_id(event)
     Its_LegendBoy, LEGEND_USER , legend_mention = cid[0], cid[1], cid[2]
