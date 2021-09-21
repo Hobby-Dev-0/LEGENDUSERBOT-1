@@ -32,7 +32,7 @@ ALIVE_TEMP = """
 tel_ver = "1.23.0"
 
 @legend_cmd(pattern="alive$")
-@bot.on(sudo_cmd(pattern="alive")) 
+@bot.on(sudo_cmd(pattern="alive$")) 
 async def up(event):
     cid = await client_id(event)
     Its_LegendBoy, LEGEND_USER , legend_mention = cid[0], cid[1], cid[2]
@@ -51,7 +51,7 @@ async def up(event):
     legend_pic = PIC
     end = datetime.datetime.now()
     ling = (end - start).microseconds / 1000
-    omk = ALIVE_TEMP.format(CSTM_ALV_TEXT, Its_LegendBoy, LEGEND_USER, tel_ver , LEGENDversion)
+    omk = ALIVE_TEMP.format(CSTM_ALV_TEXT, Its_LegendBoy, LEGEND_USER,tel_ver , LEGENDversion)
     await event.client.send_file(event.chat_id, file=legend_pic, caption=omk, parse_mode="HTML")
     await legend.delete()
 
