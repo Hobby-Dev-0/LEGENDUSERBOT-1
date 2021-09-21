@@ -1,5 +1,5 @@
 import os
-dB = os.environ.
+from ..startup.connect import dB
 from telethon.tl.types import ChatBannedRights
 ENV = bool(os.environ.get("ENV", False))
 if ENV:
