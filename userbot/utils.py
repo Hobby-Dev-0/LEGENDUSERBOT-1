@@ -198,7 +198,7 @@ import asyncio
 from telethon.errors import FloodWaitError, MessageNotModifiedError
 from telethon.events import CallbackQuery
 
-from userbot.sql.gvar_sql
+from userbot.sql.gvar_sql import *
 SUDOS = dB.get("SUDO_USERS")
 
 def check_owner(func):
