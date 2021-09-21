@@ -93,8 +93,8 @@ if ENV:
         # number of rows of buttons to be displayed in .legend command
         BUTTONS_IN_HELP = int(os.environ.get("NO_OF_BUTTONS", 7))
         #open load
-        OPEN_LOAD_LOGIN = dB.get("OPEN_LOAD_LOGIN", None)
-        OPEN_LOAD_KEY = dB.get("OPEN_LOAD_KEY", None)
+        OPEN_LOAD_LOGIN = dB.get("OPEN_LOAD_LOGIN")
+        OPEN_LOAD_KEY = dB.get("OPEN_LOAD_KEY")
         # number of colums of buttons to be displayed in .legend command
         NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 2))
         # emoji to be displayed  in help .legend
