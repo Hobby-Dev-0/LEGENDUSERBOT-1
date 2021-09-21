@@ -15,7 +15,7 @@ if ENV:
         SUDO_COMMAND_HAND_LER = dB.get("SUDO_COMMAND_HAND_LER")
 
         # This is required for the plugins involving the file system.
-        TMP_DOWNLOAD_DIRECTORY = dB.get("TMP_DOWNLOAD_DIRECTORY", "./userbot/DOWNLOADS/")
+        TMP_DOWNLOAD_DIRECTORY = dB.get("TMP_DOWNLOAD_DIRECTORY") or "./userbot/DOWNLOADS/"
         # This is required for the speech to text module. Get your USERNAME from https://console.bluemix.net/docs/services/speech-to-text/getting-started.html
         IBM_WATSON_CRED_URL = dB.get("IBM_WATSON_CRED_URL")
         IBM_WATSON_CRED_PASSWORD = dB.get("IBM_WATSON_CRED_PASSWORD")
