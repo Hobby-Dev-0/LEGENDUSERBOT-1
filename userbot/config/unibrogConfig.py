@@ -1,4 +1,5 @@
-import os ##hashtag
+import os
+from .. import dB
 from telethon.tl.types import ChatBannedRights
 ENV = bool(os.environ.get("ENV", False))
 if ENV:
@@ -6,36 +7,36 @@ if ENV:
     class Config(object):
         LOGGER = True
         # Get this value from my.telegram.org! Please do not steal
-        LOCATION = os.environ.get("LOCATION", None)
-        OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
+        LOCATION = dB.get("LOCATION")
+        OPEN_WEATHER_MAP_APPID = dB.get("OPEN_WEATHER_MAP_APPID")
         # Get your own ACCESS_KEY from http://api.screenshotlayer.com/api/capture
-        SCREEN_SHOT_LAYER_ACCESS_KEY = os.environ.get("SCREEN_SHOT_LAYER_ACCESS_KEY", None)
+        SCREEN_SHOT_LAYER_ACCESS_KEY = dB.get("SCREEN_SHOT_LAYER_ACCESS_KEY")
         # Send .get_id in any group to fill this value.
-        SUDO_COMMAND_HAND_LER = os.environ.get("SUDO_COMMAND_HAND_LER", None)
+        SUDO_COMMAND_HAND_LER = dB.get("SUDO_COMMAND_HAND_LER")
 
         # This is required for the plugins involving the file system.
-        TMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
+        TMP_DOWNLOAD_DIRECTORY = dB.get("TMP_DOWNLOAD_DIRECTORY") or "./userbot/DOWNLOADS/"
         # This is required for the speech to text module. Get your USERNAME from https://console.bluemix.net/docs/services/speech-to-text/getting-started.html
-        IBM_WATSON_CRED_URL = os.environ.get("IBM_WATSON_CRED_URL", None)
-        IBM_WATSON_CRED_PASSWORD = os.environ.get("IBM_WATSON_CRED_PASSWORD", None)
+        IBM_WATSON_CRED_URL = dB.get("IBM_WATSON_CRED_URL")
+        IBM_WATSON_CRED_PASSWORD = dB.get("IBM_WATSON_CRED_PASSWORD")
         # This is required for the hash to torrent file functionality to work.
-        HASH_TO_TORRENT_API = os.environ.get("HASH_TO_TORRENT_API", "https://example.com/torrent/{}");
-        # This is required for the @telegraph functionality.
-        TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "IndianBot")
-        # Get a Free API Key from OCR.Space
-        OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
+        TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "LEGENDBOT")
+
         # Send .get_id in any group with all your administration bots (added)
-        G_BAN_LOGGER_GROUP = int(os.environ.get("G_BAN_LOGGER_GROUP", -1001198699233))
+        G_BAN_LOGGER_GROUP = dB.get("LOG_GROUP")
         # TG API limit. An album can have atmost 10 media!
+        FBAN_LOGGER_GROUP = dB.get("LOG_GROUP")
+        if FBAN_LOGGER_GROUP:
+            FBAN_LOGGER_GROUP = int(FBAN_LOGGER_GROUP)
+
         GOOGLE_SEARCH_COUNT_LIMIT = int(os.environ.get("GOOGLE_SEARCH_COUNT_LIMIT", 9))
         TG_GLOBAL_ALBUM_LIMIT = int(os.environ.get("TG_GLOBAL_ALBUM_LIMIT", 9))
-        # Telegram BOT Token from @BotFather
-        BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
-        BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
+        # MIRROR ACE API KEY AND TOKEN
+        # Telegram BOT Token from @Bot
         #spootifie
-        SPOTIFY_USERNAME = os.environ.get("SPOTIFY_USERNAME", None)
-        SPOTIFY_PASS = os.environ.get("SPOTIFY_PASS", None)
-        SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX", None)
+        SPOTIFY_USERNAME = dB.get("SPOTIFY_USERNAME")
+        SPOTIFY_PASS = dB.get("SPOTIFY_PASS")
+        SPOTIFY_BIO_PREFIX = dB.get("SPOTIFY_BIO_PREFIX")
         #log
         DUAL_LOG = os.environ.get("DUAL_LOG", None)
         # DO NOT EDIT BELOW THIS LINE IF YOU DO NOT KNOW WHAT YOU ARE DOING
@@ -53,16 +54,15 @@ if ENV:
         )
         # chat ids or usernames, it is recommended to use chat ids,
         # providing usernames means an additional overhead for the user
-        CMD_HNDLR = os.environ.get("CMD_HNDLR", "\!")
         CHATS_TO_MONITOR_FOR_ANTI_FLOOD = []
         # Get your own API key from https://www.remove.bg/ or
         # feel free to use http://telegram.dog/Remove_BGBot
         REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
         # Set to True if you want to block users that are spamming your PMs.
         SLAP_USERNAME = os.environ.get("SLAP_USERNAME", None)
-        GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
-        GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
-        NO_LOG_P_M_S = bool(os.environ.get("NO_LOG_P_M_S", True))
+        GITHUB_ACCESS_TOKEN = dB.get("GITHUB_ACCESS_TOKEN")
+        GIT_REPO_NAME = dB.get("GIT_REPO_NAME")
+        NO_P_M_SPAM = bool(os.environ.get("NO_P_M_SPAM", True))
         # define "spam" in PMs
         NO_SONGS = bool(os.environ.get("NO_SONGS", False))
         MAX_FLOOD_IN_PM = int(os.environ.get("MAX_FLOOD_IN_PM", 5))
@@ -74,70 +74,101 @@ if ENV:
         HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
         HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
         # send .get_id in any channel to forward all your NEW PMs to this group
-        PRIVATE_GROUP_BOT_API_ID = os.environ.get("PRIVATE_GROUP_BOT_API_ID", None)
+        PRIVATE_GROUP_BOT_API_ID = dB.get("LOG_GROUP")
         if PRIVATE_GROUP_BOT_API_ID:
             PRIVATE_GROUP_BOT_API_ID = int(PRIVATE_GROUP_BOT_API_ID)
         # send .get_id in your private channel to forward all your Private messages
-        PM_LOGGR_BOT_API_ID = os.environ.get("PM_LOGGR_BOT_API_ID", None)
-        if PM_LOGGR_BOT_API_ID:
-            PM_LOGGR_BOT_API_ID = int(PM_LOGGR_BOT_API_ID)
-       # in pm permit pic
-        PM_PIC = os.environ.get("PM_PIC", None)
-        PM_MSG_TEXT = os.environ.get("PM_MSG_TEXT", None)
 
+        TAG_LOGGER = dB.get("LOG_GROUP")
+        if TAG_LOGGER: TAG_LOGGER = int(TAG_LOGGER)
+
+        #Tag LOGGER
+
+        PM_LOGGR_BOT_API_ID = dB.get("LOG_GROUP")
+        if PM_LOGGR_BOT_API_ID: PM_LOGGR_BOT_API_ID = int(PM_LOGGR_BOT_API_ID)
         # For Databases
         # can be None in which case plugins requiring
         # DataBase would not work
         DB_URI = os.environ.get("DATABASE_URL", None)
-        # number of rows of buttons to be displayed in .helpme command
-        NO_OF_BUTTONS = int(os.environ.get("NO_OF_BUTTONS", 7))
+        # number of rows of buttons to be displayed in .legend command
+        BUTTONS_IN_HELP = int(os.environ.get("NO_OF_BUTTONS", 7))
         #open load
-        OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", None)
-        OPEN_LOAD_KEY = os.environ.get("OPEN_LOAD_KEY", None)
-        # number of colums of buttons to be displayed in .help command
-        NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 3))
-        # emoji to be displayed  in help .help
-        EMOJI_TO_DISPLAY_IN_HELP = os.environ.get("EMOJI_TO_DISPLAY_IN_HELP", "🔰")
+        OPEN_LOAD_LOGIN = dB.get("OPEN_LOAD_LOGIN")
+        OPEN_LOAD_KEY = dB.get("OPEN_LOAD_KEY")
+        # number of colums of buttons to be displayed in .legend command
+        NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD = int(os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 2))
+        # emoji to be displayed  in help .legend
+        EMOJI_IN_HELP1 = dB.get("EMOJI_IN_HELP") or "⚜️"
+        EMOJI_IN_HELP2 = dB.get("EMOJI_IN_HELP2") or "🌹 "
         # specify command handler that should be used for the plugins
         # this should be a valid "regex" pattern
-        COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", "\.")
+        COMMAND_HAND_LER = dB.get("COMMAND_HAND_LER")
+        HANDLER = COMMAND_HAND_LER
+        #custom animation to kang plugin
+        CUSTOM_STICKER_PACK_NAME = dB.get("CUSTOM_STICKER_PACK_NAME")
         # specify list of users allowed to use bot
         # WARNING: be careful who you grant access to your bot.
         # malicious users could do ".exec rm -rf /*"
         SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
         # VeryStream only supports video formats
-        VERY_STREAM_LOGIN = os.environ.get("VERY_STREAM_LOGIN", None)
-        VERY_STREAM_KEY = os.environ.get("VERY_STREAM_KEY", None)
-        GROUP_REG_SED_EX_BOT_S = os.environ.get("GROUP_REG_SED_EX_BOT_S", r"(regex|moku|BananaButler_|rgx|l4mR)bot")
+        VERY_STREAM_LOGIN = dB.get("VERY_STREAM_LOGIN")
+        VERY_STREAM_KEY = dB.get("VERY_STREAM_KEY")
+        GROUP_REG_SED_EX_BOT_S = dB.get("GROUP_REG_SED_EX_BOT_S") or "(regex|moku|BananaButler_|rgx|l4mR)bot"
         TEMP_DIR = os.environ.get("TEMP_DIR", None)
         CHANNEL_ID = int(os.environ.get("CHANNEL_ID", -100))
+        watermark_path = os.environ.get("watermark_path", None)
         #Google Chrome Stuff
         CHROME_DRIVER = os.environ.get("CHROME_DRIVER", "/app/.chromedriver/bin/chromedriver")
         GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", "/app/.apt/usr/bin/google-chrome")
         # Google Drive ()
-        G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
-        G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
-        GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", None)
-        AUTH_TOKEN_DATA = os.environ.get("AUTH_TOKEN_DATA", None)
+        G_DRIVE_CLIENT_ID = dB.get("G_DRIVE_CLIENT_ID")
+        G_DRIVE_CLIENT_SECRET = dB.get("G_DRIVE_CLIENT_SECRET")
+        GDRIVE_FOLDER_ID = dB.get("GDRIVE_FOLDER_ID")
+        AUTH_TOKEN_DATA = dB.get("AUTH_TOKEN_DATA")
         if AUTH_TOKEN_DATA != None:
             os.makedirs(TMP_DOWNLOAD_DIRECTORY)
             t_file = open(TMP_DOWNLOAD_DIRECTORY+"auth_token.txt","w")
             t_file.write(AUTH_TOKEN_DATA)
             t_file.close()
+
         YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
         GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", None)
-        #MongoDB
-        MONGO_URI = os.environ.get("MONGO_URI", None)
         #alive
-        ALIVE_PHOTTO = os.environ.get("ALIVE_PHOTTO", None)
-        ALIVE_MSG = os.environ.get("ALIVE_MSG", None)
+        ALIVE_PIC = dB.get("ALIVE_PIC")
+        PM_PIC = dB.get("PM_PIC")
+        AWAKE_PIC = dB.get("AWAKE_PIC")
+        HELP_PIC = dB.get("OP_PIC")
+        ALIVE_MSG = dB.get("ALIVE_MSG")
+        PM_MSG = dB.get("PM_MSG")
+        INSTANT_BLOCK = dB.get("INSTANT_BLOCK") or "ENABLE"
+        YOUR_GROUP = "@Legend_Userbot"
+        YOUR_CHANNEL = "@Its_LegendBot"
+        BOT_PIC = dB.get("ALIVE_PIC")
         #auto bio
-        BIO_MSG = os.environ.get("ALIVE_MSG", None)
-        #Lydia API
-        LYDIA_API = os.environ.get("LYDIA_API",None)
-        PLUGIN_CHANNEL = os.environ.get("PLUGIN_CHANNEL", None)
+        BIO_MSG = dB.get("ALIVE_MSG")
+        PLUGIN_CHANNEL = dB.get("PLUGIN_CHANNEL")
+        UPSTREAM_REPO = os.environ.get(
+            "UPSTREAM_REPO", "https://github.com/LEGEND-OS/LEGENDBOT"
+        )
+        LEGEND_STRING = os.environ.get("LEGEND_STRING")
+        BOT_MODE = dB.get("BOT_MODE") or "ON"
+        ABUSE = dB.get("ABUSE")
+        BOTLOG_CHATID = dB.get("LOG_GROUP")
+        ALIVE_NAME = dB.get("ALIVE_NAME")
+        BOY_OR_GIRL = os.environ.get("BOY_OR_GIRL")
+        BOT_TRIGGER = os.environ.get("BOT_TRIGGER") or "^/"
+        BOTMODE_LOG = int(os.environ.get("BOTMODE_LOG", False))
+        BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
+        BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
+        FORCE_SUB = dB.get("FORCE_SUB")
+        FORCE_CHANNEL_UN = dB.get("FORCE_CHANNEL_UN")
+        LOGGER_ID = dB.get("LOG_GROUP")
+        if LOGGER_ID:
+            LOGGER_ID = int(LOGGER_ID)
+        FORCE_CHANNEL_ID = int(os.environ.get("FORCE_CHANNEL_ID", False))
+        EXTRA_LEGENDBOT = os.environ.get("EXTRA_LEGENDBOT", -1001221881562)
         PM_DATA = os.environ.get("PM_DATA", "ENABLE")
-        HELP_INLINETYPE = os.environ.get("HELP_INLINETYPE", None)
+
 else:
     class Config(object):
         DB_URI = None
