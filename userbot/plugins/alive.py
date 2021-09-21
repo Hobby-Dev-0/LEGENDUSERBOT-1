@@ -56,8 +56,11 @@ async def up(event):
 
 
 
-CmdHelp("alive").add_command(
-  "alive", None, "Shows the Default Alive Message"
-).add_warning(
-  "✅ Harmless Module"
-).add()
+CMD_HELP.update(
+    {
+        "Alive": "__**PLUGIN NAME :** Alive__\
+\n\n ** CMD ** `.alive` \
+\n**USAGE  :  **Shows The Bot Is Alive or Not.\
+"
+    }
+)
