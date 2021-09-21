@@ -116,5 +116,5 @@ CmdHelp("federation").add_command(
 ).add_info(
   "Rose Bot Federation."
 ).add_warning(
-  "✅ Safe Module."
+  "Official"
 ).add()
