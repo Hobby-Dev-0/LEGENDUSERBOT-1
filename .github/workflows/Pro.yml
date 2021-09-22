@@ -18,9 +18,9 @@ jobs:
 
         with:
 
-          find: "impoopp"
+          find: "LEGENDS-OP"
 
-          replace: "io"
+          replace: "LEGEND-OS"
 
       - name: Create Pull Request
 
