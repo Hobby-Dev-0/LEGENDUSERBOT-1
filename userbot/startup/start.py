@@ -42,7 +42,7 @@ async def assistant():
 addon = dB.get("ADDONS") or False                
 async def addons():
     if addon == "True":
-        extra_repo = "https://github.com/LEGENDS-OP/LegendBot-Addons"
+        extra_repo = "https://github.com/LEGEND-OS/LegendBot-Addons"
         try:
             os.system(f"git clone {extra_repo}")  
         except BaseException:
